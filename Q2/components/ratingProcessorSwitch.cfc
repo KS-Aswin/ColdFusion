@@ -1,5 +1,5 @@
 <cfcomponent>
-    <cffunction name="processRating" access="remote" returntype="string">
+    <cffunction name="processRating"  returntype="string">
         <cfargument name="rating" type="numeric" required="true">
         
         <cfswitch expression ="#ARGUMENTS.rating#">

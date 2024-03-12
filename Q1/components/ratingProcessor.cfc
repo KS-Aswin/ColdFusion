@@ -1,5 +1,6 @@
+<!--- RatingLogic.cfc --->
 <cfcomponent>
-    <cffunction name="processRating" access="remote" returntype="string">
+    <cffunction name="getRating" returntype="string">
         <cfargument name="rating" type="numeric" required="true">
         
         <cfif ARGUMENTS.rating EQ 5>
@@ -17,4 +18,3 @@
         <cfreturn VARIABLES.ratingResult>
     </cffunction>
 </cfcomponent>
- 
