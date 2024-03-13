@@ -1,10 +1,8 @@
-<!--- q7.cfc --->
 <cfcomponent>
-    <cffunction name="init" access="public" returntype="q7">
-        <cfreturn this>
-    </cffunction>
+
     
-    <cffunction name="processForm" returntype="void">
+    
+   <cffunction name="processForm" returntype="void">
         <cfargument name="formData" type="struct" required="true">
         
         <!--- Ensure session is initialized --->
@@ -19,13 +17,23 @@
             
             <!--- Check if the key is not empty before adding to the session --->
             <cfif len(trim(arguments.formData.key))>
-                <!--- Append the new key-value pair to the session structure --->
-                <cfset session.keyValuePairs[arguments.formData.key] = arguments.formData.value>
+                <!--- Initialize array if key doesn't exist, otherwise append to existing array --->
+                <cfif not structKeyExists(session.keyValuePairs, arguments.formData.key)>
+                    <cfset session.keyValuePairs[arguments.formData.key] = [arguments.formData.value]>
+                <cfelse>
+                    <!--- Convert existing value to array if it's a string --->
+                    <cfif isSimpleValue(session.keyValuePairs[arguments.formData.key])>
+                        <cfset session.keyValuePairs[arguments.formData.key] = [session.keyValuePairs[arguments.formData.key]]>
+                    </cfif>
+                    <!--- Append new value to existing array --->
+                    <cfset arrayAppend(session.keyValuePairs[arguments.formData.key], arguments.formData.value)>
+                </cfif>
             </cfif>
         </cfif>
     </cffunction>
     
     <cffunction name="getKeyValuePairs" access="public" returntype="struct">
-        <cfreturn session.keyValuePairs>
+        <cfreturn session.keyValuePairs ?: {}>
     </cffunction>
+
 </cfcomponent>
