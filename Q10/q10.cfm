@@ -28,10 +28,7 @@
     
     <!-- Process form submission -->
     <cfif structKeyExists(form, "submit")>
-        <!-- Pass form data to processForm method -->
         <cfset cfcInstance.processForm(form)>
-        <!-- Comment out redirection to display duplication message -->
-        <!-- cflocation url="#CGI.SCRIPT_NAME#" addtoken="false" -->
     </cfif>
     
     <!-- Display session variable dump for debugging -->
