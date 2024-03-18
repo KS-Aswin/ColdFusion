@@ -1,18 +1,9 @@
-function checkSize() {
-    const fileInputElement = document.getElementById('file');
 
-	fileInputElement.addEventListener('change', function() {
-		// Get the file object
-		const file = this.files[0];
-	  
-		// Get the file size in bytes
-		const fileSize = file.size;
-
-		const fileSizeInMB = fileSize / (1024 * 1024);
-
-		if(fileSizeInMB > 1023){
-			alert("Choose a file size lessthan 1MB");
-		}
-	
-	});
+function printFile() {
+    var file = document.getElementById('imgFile').files[0].size;
+	file=file/(1024*1024);
+	if(file > 1){
+		alert("Choose a file lessthan 1MB!..");
+		event.preventDefault();
+	}
 }
