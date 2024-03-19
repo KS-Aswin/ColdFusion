@@ -7,9 +7,18 @@
 </head>
 <body>
     <cfset local.imgId = URL.imgId>
-    <cfset q14Component = createObject("component", "components.q14")>
-    <cfoutput>
-        #q14Component.displayImage(local.imgId)#
-    </cfoutput>
+    <cfquery name="displayAll" datasource ="DESKTOP-89AF345">
+        select * from imgData
+        where imgId=<cfqueryparam value="#local.imgId#" cfsqltype="cf_sql_integer">
+   </cfquery>
+  
+   <cfoutput query="displayAll">
+        <h6>Name of the Image is :</h6>
+        <h3>#imgName#</h3>
+        <h6>Description of the Image is :</h6>
+        <h4>#imgDesc#</h4>
+        <h6>Image is :</h6>
+        <img src="./assets/#imgFile#">
+   </cfoutput> 
 </body>
 </html>

@@ -8,16 +8,20 @@
 </head>
 <body>
     <cfoutput>
-    <form action="q14.cfm" method="post">
+    <cfif StructKeyExists(form, "submit") and Len(trim(form.imgFile)) GT 0>
+        <cfinvoke  component="components.q14" method="insertImage">
+            <cfinvokeargument  name="imgName"  value="#form.imgName#">
+            <cfinvokeargument  name="imgDesc"  value="#form.imgDesc#">
+            <cfinvokeargument  name="imgFile"  value="#form.imgFile#">
+        </cfinvoke>
+    </cfif>
+    <form action="q14.cfm" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="Enter file Name" name="imgName" id="imgName" required>
             <input type="text" placeholder="Enter file Description" name="imgDesc" id="imgDesc" required>
-            <input type="file" name="imgFile" id="imgFile" required>
+            <input type="file" name="imgFile" id="imgFile" accept=".jpg, .jpeg, .png, .gif" required>
             <input type="submit" name="submit" onclick="printFile()">
     </form>
-    <cfif StructKeyExists(form, "submit")>
-        <cfset imgComponent = createObject("component", "components.q14")>
-        <cfset imgComponent.insertImage(form.imgName, form.imgDesc, form.imgFile)>
-    </cfif>
+    
     </cfoutput>
 </body>
 </html>
