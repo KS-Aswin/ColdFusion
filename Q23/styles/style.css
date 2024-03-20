@@ -7,13 +7,15 @@ body {
     text-align: center; 
     color:#444444 !important;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
-    background-color: #669900;
 }
 
 .container{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content:center;
+    background-color: #669900;
+    padding-bottom: 20px;
 }
 
 .dataFeilds{
@@ -37,8 +39,8 @@ body {
     justify-content: center;
     align-items: flex-start;
     border-bottom:1px dotted #4e4a4a;
-    padding: 10px;
-    margin: 10px;
+    padding: 20px 10px;
+    margin: 0px 10px;
 
 }
 .empApplication h2{
@@ -49,25 +51,28 @@ body {
 .empApplication p{
     font-size: 12.35px;
 }
-.hiddenError{
+#hiddenError{
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius:15px;
+    border-radius:30px;
     border:1px solid #d50000;
     gap:10px;
+    margin: 15px;
+    padding: 15px;
 }
-.hiddenError h3{
+#hiddenError h3{
     font-size: 16.25px;
 }
-.hiddenError p{
+#hiddenError p{
     font-size: 13px;
     color:#000000;
 }
 .highlight{
     color: #ff0000;
-    padding:5px;
+    padding:5px 10px;
+    border-radius: 15px;
     background-color:#ffdfdf;
 }
 .position{
@@ -75,34 +80,375 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 15px;
-    margin: 10px 0px    ;
+    padding: 5px 10px;
+    margin: 10px;
+    width: 403.89px;
+}
+.impStar{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 17px;
 }
 
+.posImpStar{
+    display: flex;
+    align-items: center;
+}
 .impTxt{
     display: flex;
     flex-direction: column;
     font-size: 12.35px;
+    font-weight: 700;
 }
-.impTxtHidden{
-    display: flex;
-    color: #ff0000; 
-    font-size: 12.35px;  
-}
+
 .imp{
     color: #ff0000;   
+}
+.selectOption{
+    display: flex;
+    flex-direction: column;
 }
 
 .choosePos{
     width: 195.83px;
+
 }
 .relocate{
     display: flex;
     flex-direction: column;
-    gap:10px;
+    font-size: 13px;
+    padding: 5px 20px;
+    align-items: flex-start;
+    width: 403.89px;
+}
+.relocate p{
+    font-weight: 700;
+    font-size: 12.35px;
 }
 .radio{
     
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+}
+.radioInput{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     gap: 10px;
+}
+.calender{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 403.89px;
+    padding: 5px 20px;
+    font-size: 12.35px;
+    font-weight: 700;
+}
+.calInput{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3px;
+}
+.inputs input{
+    width:19px;
+    height: 26px !important;
+    text-align: center;
+    border: 1px solid #bbbfbf;
+    font-size: 11.05px;
+}
+.inputss input{
+    width:35px;
+    border: 1px solid #bbbfbf;
+    text-align: center;
+    font-size: 11.05px;
+}
+.inputs{
+    font-size: 11.05px;
+    font-weight: 100;
+}
+.port{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px 10px;
+    margin: 10px;
+    width: 403.89px;
+}
+.port p{
+    font-size: 12.35px;
+    font-weight: 700;
+}
+.port input{
+    width: 393.67px;
+    height: 26px;
+    border: 1px solid #bbbfbf;
+}
+.attach{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 403.89px;
+    padding: 5px 20px;
+    font-size: 12.35px;
+    font-weight: 700;
+    gap: 5px;
+}
+.attachInputFeilds{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.attachInputFeilds p{
+    font-weight: 100;
+}
+.wordOrDoc{
+    font-size: 10.92px;
+    font-weight: 100;
+    padding: 5px 0px;
+}
+.salary{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5px 20px;
+    font-size: 12.35px;
+    font-weight: 700;
+    gap: 5px;    
+    margin: 10px;
+    border-bottom:1px dotted #4e4a4a;
+}
+.salaryInput{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+}
+.salaryText{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.salaryText input{
+    height: 26px;
+    width: 85px;
+    font-size: 11.05px;
+    border: 1px solid #bbbfbf;
+}
+.salaryTexts input{
+    height: 26px;
+    width: 19px;
+    font-size: 11.05px;
+    border: 1px solid #bbbfbf;
+}
+.salaryTexts p{
+    font-size: 11.05px;
+    font-weight: 100;
+}
+.salaryText p{
+    font-size: 11.05px;
+    font-weight: 100;
+}
+.dollar{
+    font-size: 15.6px;
+    font-weight: 100;
+}
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px 10px;
+    margin: 10px;
+    width: 403.89px;
+}
+.contactInfo h3{
+    font-size: 14.3px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+.fullName{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 12.35px;
+    font-weight: 700;
+    width: 403.89px;
+}
+.firstLast{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.names{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.names input{
+    height: 26px;
+    width: 68px;
+    border: 1px solid #bbbfbf;
+}
+.namess input{
+    height: 26px;
+    width: 118px;
+}
+.names p{    
+    font-size: 11.05px;
+    font-weight: 100;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px 10px;
+    margin: 10px;
+    font-size: 12.35px;
+    font-weight: 700;
+    width: 403.89px;
+}
+.emailNames{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.emailNames input{    
+    height: 26px;
+    width: 403.89px;
+    border: 1px solid #bbbfbf;
+}
+.phone{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 403.89px;
+    padding: 5px 10px;
+    margin: 10px;
+    font-size: 12.35px;
+    font-weight: 700;
+}
+.phoneInput{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3px;
+}
+.inputsValues input{
+    width:27px;
+    height: 26px !important;
+    text-align: center;
+    border: 1px solid #bbbfbf;
+    font-size: 11.05px;
+}
+.inputssValues input{
+    width:35px;
+    border: 1px solid #bbbfbf;
+    text-align: center;
+    font-size: 11.05px;
+}
+.inputsValues{
+    font-size: 11.05px;
+    font-weight: 100;
+}
+.button{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5px 20px;
+}
+.button button{
+    font-size: 16px;
+    padding: 0px 5px;
+}
+ 
+.footerText {
+    display: flex;
+    text-align: justify;
+    font-size: 14px;
+    color: #7e7e7e;
+    padding:30px;
+}
+a{
+    color: #007faa;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.footer p{
+    font-size: 12px;
+    color:#606060;
+}
+.footer a{
+    font-size: 12px;
+    color:#0000ee;
+}
+
+#impTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
+}
+#radioTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
+}
+#calTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
+}
+#portTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
+}
+#nameTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
+}
+#mailTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
+}
+#phTxtHidden{
+    
+    display: none;
+    font-weight:100;
+    color: #ff0000; 
+    font-size: 12.35px;  
 }
