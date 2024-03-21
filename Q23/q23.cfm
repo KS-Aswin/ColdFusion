@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./scripts/q23.js"></script>
 </head>
@@ -145,22 +146,23 @@
                     <p>Phone<span class="imp">*</span></p>
                     <div class="phoneInput">
                         <div class="inputsValues">
-                            <input type="text" maxlength="3" id="phFirst">
+                            <input type="text" maxlength="3" id="phFirst" name="phFirst">
                             <p>###</p>
                         </div>
                         <p>-</p>
                         <div class="inputsValues">
-                            <input type="text" maxlength="3" id="phMid">
+                            <input type="text" maxlength="3" id="phMid" name="phMid">
                             <p>###</p>
                         </div>
                         <p>-</p>
                         <div class="inputsValues inputssValues">
-                            <input type="text" maxlength="4" id="phLast">
+                            <input type="text" maxlength="4" id="phLast" name="phLast">
                             <p>####</p>
                         </div>
                     </div>
                     <p id="phTxtHidden">This field is required. Please enter a value.</p>
                 </div>
+
 
                 <div class="button">
                     <button type="button" id="submitBtn">Register</button>

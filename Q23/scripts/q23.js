@@ -69,14 +69,22 @@ $(document).ready(function(){
             var allowedNumbers = /^[0-9]+$/;
             return allowedNumbers.test(charStr);
         }
+        $('input[maxlength]').on('input', function() {
+            var maxLength = $(this).attr('maxlength');
+            if ($(this).val().length >= maxLength) {
+                var $nextField = $(this).next('input[maxlength]');
+                if ($nextField.length > 0) {
+                    $nextField.focus();
+                }
+            }
+        });
+        
     $("#submitBtn").click(function(){
         var fname = $("#fname").val().trim();
         var lname = $("#lname").val().trim();
         var dDown = $("#positionSelect").val().trim();
         var eMail = $("#email").val().trim();
         var url = $("#urls").val().trim();
-        var dol = $("#dol").val().trim();
-        var cents = $("#cents").val().trim();
         var phFirst = $("#phFirst").val().trim();
         var phMid = $("#phMid").val().trim();
         var phLast = $("#phLast").val().trim();
@@ -86,11 +94,18 @@ $(document).ready(function(){
             $("#impTxtHidden").show();
             $("#pos").css("background-color", "#ffdfdf");
             $("#pos").css("color", "#d50000");
+                    
+            $("#positionSelect").on(
+                "click", function () { 
+                $("#pos").css("background-color", "#fff7c0");
+            });
         } else {
             $("#hiddenError").hide();
             $("#impTxtHidden").hide();
             $("#pos").css("background-color", "#fff");
             $("#pos").css("color", "#000000");
+                    
+        
         }
 
         if (fname == "" || fname.length <= 1 || lname == "") {
@@ -99,6 +114,11 @@ $(document).ready(function(){
             $("#cInfo").css("background-color", "#ffdfdf");
             $("#cInfo").css("color", "#d50000");
             $(".fLnameText").css("color", "#000000");
+                    
+            $("#fname").on(
+                "click", function () { 
+                $("#cInfo").css("background-color", "#fff7c0");
+            });
 
             
         } else {
@@ -106,12 +126,8 @@ $(document).ready(function(){
             $("#nameTxtHidden").hide();
             $("#cInfo").css("background-color", "#fff");
             $("#cInfo").css("color", "#000000");
+                    
         }
-
-
-        
-
-        
         
         var urlRegex=/^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
         if(url==""){
@@ -119,17 +135,30 @@ $(document).ready(function(){
             $("#portTxtHidden").show();
             $("#pFolio").css("background-color", "#ffdfdf");
             $("#pFolio").css("color", "#d50000");
+                    
+            $("#urls").on(
+                "click", function () { 
+                $("#pFolio").css("background-color", "#fff7c0");
+            });
         } else if(!urlRegex.test(url)){
             $("#hiddenError").show();
             $("#portTxtHidden").text("Please enter a valid url in http://website.com format.");
             $("#portTxtHidden").show();
             $("#pFolio").css("background-color", "#ffdfdf");
-            $("#pFolio").css("color", "#d50000");
+            $("#pFolio").css("color", "#d50000"); 
+                    
+            $("#urls").on(
+                "click", function () { 
+                $("#pFolio").css("background-color", "#fff7c0");
+            });         
+                    
+           
         } else {
             $("#hiddenError").hide();
             $("#portTxtHidden").hide();
             $("#pFolio").css("background-color", "#ffffff");
             $("#pFolio").css("color", "#000000");
+                    
         }
 
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -138,12 +167,22 @@ $(document).ready(function(){
             $("#mailTxtHidden").show();
             $("#mailE").css("background-color", "#ffdfdf");
             $("#mailE").css("color", "#d50000");
+                    
+            $("#email").on(
+                "click", function () { 
+                $("#mailE").css("background-color", "#fff7c0");
+            });
         } else if (!emailRegex.test(eMail)) {
             $("#hiddenError").show();
             $("#mailTxtHidden").text("Please enter a valid email address.");
             $("#mailTxtHidden").show();
             $("#mailE").css("background-color", "#ffdfdf");
             $("#mailE").css("color", "#d50000");
+                    
+            $("#email").on(
+                "click", function () { 
+                $("#mailE").css("background-color", "#fff7c0");
+            });
         } else {
             $("#hiddenError").hide();
             $("#mailTxtHidden").hide();
@@ -152,7 +191,10 @@ $(document).ready(function(){
         }
 
         
-      
+        $("#phFirst").on(
+            "click", function () { 
+            $("#phNum").css("background-color", "#fff7c0");
+        });
 
 
         if (phFirst == "" || phMid == "" || phLast=="") {
@@ -160,6 +202,8 @@ $(document).ready(function(){
             $("#phTxtHidden").show();
             $("#phNum").css("background-color", "#ffdfdf");
             $("#phNum").css("color", "#d50000");
+                    
+            
         } else {
             $("#hiddenError").hide();
             $("#phTxtHidden").hide();
