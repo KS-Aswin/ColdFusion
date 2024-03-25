@@ -4,15 +4,15 @@
         <cfargument name="email" required="true">
         
         <cfquery name="emailCheck" datasource="DESKTOP-89AF345">
-            SELECT COUNT(*) AS emailCount
+            SELECT *
             FROM subscribe
             WHERE email = <cfqueryparam value="#arguments.email#" cfsqltype="CF_SQL_VARCHAR">
         </cfquery>
         
-        <cfif emailCheck.emailCount GT 0>
-            <cfreturn {"message":"exists"}>
+        <cfif emailCheck.recordCount>
+            <cfoutput>{"message":"exists"}</cfoutput>
         <cfelse>
-            <cfreturn {"message":"notexists"}>
+            <cfoutput>{"message":"notexists"}</cfoutput>
         </cfif>   
     </cffunction>
     
@@ -20,7 +20,7 @@
         <cfargument name="name" required="true">
         <cfargument name="email" required="true">
         
-        <cfquery datasource="DESKTOP-89AF345">
+        <cfquery name = "emailUpload" datasource="DESKTOP-89AF345" >
             INSERT INTO subscribe (fname, email)
             VALUES (
                 <cfqueryparam value="#arguments.name#" cfsqltype="CF_SQL_VARCHAR">,
@@ -28,6 +28,6 @@
             )
         </cfquery>
         
-        <cfreturn "email uploaded successfully">
+        <cfreturn "Email Uploaded Successfully">
     </cffunction>
 </cfcomponent>
