@@ -43,7 +43,7 @@ body {
     margin: 0px 10px;
 
 }
-.empApplication h2{
+.empApplication h2,h2{
     color:#000000;
     font-size: 20.8px;
     font-weight: 100;
@@ -71,7 +71,7 @@ body {
 }
 .highlight{
     color: #ff0000;
-    padding:5px 10px;
+    padding:0px 10px;
     border-radius: 15px;
     background-color:#ffdfdf;
 }
@@ -167,6 +167,7 @@ body {
     border: 1px solid #bbbfbf;
     text-align: center;
     font-size: 11.05px;
+    margin-right: 5px;
 }
 .inputs{
     font-size: 11.05px;

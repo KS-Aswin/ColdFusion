@@ -1,17 +1,11 @@
-
-<cfapplication name="MyApplication" sessionmanagement="true">
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>ColdFusion Structure Example</title>
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="./scripts/q23.js"></script>
 </head>
 <body>
@@ -24,7 +18,7 @@
                 <img src="./assets/logo.png" alt="logo">
             </div>
 <!---form start--->
-            <form id="formValid">
+            <form action="components/q23.cfc?method=uploadData" method="POST">
                 <div class="empApplication">
                     <h2>Employement Application</h2>
                     <p>Infinity Box Inc.
@@ -68,24 +62,24 @@
                         <p id="radioTxtHidden">This field is required. Please enter a value.</p>
                     </div>
                 </div>
-                <div class="calender">
+
+                <div class="calender" id="cal">
                     <p>When can you start? <span class="imp">*</span></p>
-                    <div class="calInput">
+                    <div class="calInput dateContainer" >
                         <div class="inputs">
-                            <input type="text" id="month" maxlength="2">
+                            <input type="text" class="field text dateInputOne" id="inputFieldTwo" maxlength="2" >
                             <p>MM</p>
                         </div>
                         <p>/</p>
                         <div class="inputs">
-                            <input type="text" id="day" maxlength="2">
+                            <input type="text" class="field text dateInputOne" id="day" maxlength="2">
                             <p>DD</p>
                         </div>
                         <p>/</p>
                         <div class="inputs inputss">
-                            <input type="text" id="year" maxlength="4">
+                            <input type="text"  class="field text dateInputTwo" id="datepicker" maxlength="4">
                             <p>YYYY</p>
                         </div>
-                        <img src="./assets/cal.png" alt="cal" id="datePickerImage">
                     </div>
                     <p id="calTxtHidden">This field is required. Please enter a value.</p>
                 </div>
@@ -146,17 +140,17 @@
                     <p>Phone<span class="imp">*</span></p>
                     <div class="phoneInput">
                         <div class="inputsValues">
-                            <input type="text" maxlength="3" id="phFirst" name="phFirst">
+                            <input type="text" id="n0" class="authInput" maxlength="3"   data-next="1">
                             <p>###</p>
                         </div>
                         <p>-</p>
                         <div class="inputsValues">
-                            <input type="text" maxlength="3" id="phMid" name="phMid">
+                            <input type="text" id="n1" class="authInput" maxlength="3"  data-next="2">
                             <p>###</p>
                         </div>
                         <p>-</p>
                         <div class="inputsValues inputssValues">
-                            <input type="text" maxlength="4" id="phLast" name="phLast">
+                            <input type="text" id="n2" class="authInput" maxlength="4"  data-next="3">  
                             <p>####</p>
                         </div>
                     </div>
@@ -165,7 +159,7 @@
 
 
                 <div class="button">
-                    <button type="button" id="submitBtn">Register</button>
+                    <button type="button" name="submit" id="submitBtn">Register</button>
                 </div>
                 <div class="footerText">
                     <p>This site is protected by reCAPTCHA Enterprise and the Google <a href="privacy">Privacy Policy</a> and <a href="terms">Terms of Service</a> apply.</p>
@@ -178,6 +172,9 @@
             <p class="logo2Text">See how easy it is to <a href="privacy">create a form</a></p>
         </div>
     </div>
-          
+
+    <cfoutput>
+    
+    </cfoutput>      
 </body>
 </html>
