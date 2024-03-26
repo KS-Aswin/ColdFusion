@@ -1,6 +1,6 @@
 <cfcomponent>
 
-    <!---SugnUP function start--->
+    <!---SignUP function start--->
     <cffunction name="signup" access="public" returntype="string">
         <cfargument name="user" type="string" required="true">
         <cfargument name="pass" type="string" required="true">  
@@ -20,7 +20,7 @@
             <cfreturn "Login Failed!..Invalid Username or Password!">          
         </cfif>
     </cffunction>
-    <!---SugnUP function end--->
+    <!---SignUP function end--->
 
     <!---Add Data function start--->
     <cffunction  name="addData" access="public">
