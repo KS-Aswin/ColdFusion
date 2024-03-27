@@ -32,10 +32,6 @@
             </table>
         </div>
 
-        
-
-        <button type="submit"><a href="q28_userView.cfm">Add New Data</a></button>
-
     </cfoutput>
 </body>
 </html>   
