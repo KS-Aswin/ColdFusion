@@ -1,18 +1,12 @@
-<!--- components/q11.cfc --->
 <cfcomponent>
-    <cffunction name="array" access="public" returnType="string">
-        <cfset myArray = [1, 4, 7, 2, 5, 8, 3, 6, 9]>
-        <cfset row = 1>
-        <cfset column = 1>
-        <cfloop array="#myArray#" index="myValue">
-            <cfif column EQ 3>
-                <cfoutput>#myValue#<br></cfoutput>
-                <cfset column = 1>
-                <cfset row = row + 1>
-            <cfelse>
-                <cfoutput>#myValue#</cfoutput>
-                <cfset column = column + 1>
-            </cfif>
-        </cfloop>
+    <cffunction name="display" access="public">
+    <cfset result = "">
+            <cfloop index="i" from='1' to='3'>
+                <cfloop index="j" from="1" to="3">
+                    <cfset result &=j+((j-1)*2) + ((i-1))&" ">
+                </cfloop>
+                    <cfset result &="<br>">
+            </cfloop>
+        <cfreturn result>
     </cffunction>
 </cfcomponent>

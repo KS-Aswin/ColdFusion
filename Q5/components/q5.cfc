@@ -5,10 +5,8 @@
         
         <cfset var result = {}>
         
-        <!--- Calculate user's age --->
         <cfset result.userAge = dateDiff("yyyy", arguments.userDOB, now())>
         
-        <!--- Calculate mother's age --->
         <cfset result.motherAge = dateDiff("yyyy", arguments.motherDOB, now())>
         
         <cfset result.userBirthMotherAge = result.motherAge - result.userAge>

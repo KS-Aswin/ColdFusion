@@ -1,24 +1,24 @@
-<cfapplication name="MyApplication" sessionmanagement="yes">
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Image Details</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Document</title>
 </head>
 <body>
-    <cfset local.imgId = URL.imgId>
-    <cfquery name="displayAll" datasource ="DESKTOP-89AF345">
-        select * from imgData
-        where imgId=<cfqueryparam value="#local.imgId#" cfsqltype="cf_sql_integer">
-   </cfquery>
-  
-   <cfoutput query="displayAll">
-        <h6>Name of the Image is :</h6>
-        <h3>#imgName#</h3>
-        <h6>Description of the Image is :</h6>
-        <h4>#imgDesc#</h4>
-        <h6>Image is :</h6>
-        <img src="./assets/#imgFile#">
-   </cfoutput> 
+        <cfset local.imgId=URL.imgId>
+        <cfset local.obj = createObject("component","components/q14")>
+        <cfset imgDisplay=#local.obj.displayImage(local.imgId)#>
+        <cfoutput>
+            <cfloop query="imgDisplay">
+                <h2>Image Name</h2>
+                <h5>#imgDisplay.imgName#</h5>
+                <h2>Image Description</h2>
+                <h5>#imgDisplay.imgDesc#</h5>
+                <h2>Image</h2>
+                <img src="./assets/#imgFile#">
+            </cfloop>
+        </cfoutput>
 </body>
 </html>

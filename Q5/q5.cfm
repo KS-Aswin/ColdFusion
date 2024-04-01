@@ -1,6 +1,4 @@
 <cfset AgeBoth = createObject("component", "components.q5")>
-
-<!--- index.cfm --->
 <!DOCTYPE html>
 <html>
 <head>

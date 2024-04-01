@@ -1,4 +1,3 @@
-<!--- index.cfm --->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,6 @@
 <body>
     <cfset mathOps = new components.q11()>
     
-    <!--- Call the multiply function with different arguments and display the results --->
     <cfset res1 = mathOps.multiply(1, 2)>
     <cfoutput><h2>#res1#</h2></cfoutput>
     

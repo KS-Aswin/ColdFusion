@@ -8,7 +8,6 @@
     <cfoutput>
     <h2>Please enter the character :</h2>
     
-    <!-- Debugging output -->
     <form action="" method="post">
             <input type="text"  name="data">
             <input type="submit" name="submit">

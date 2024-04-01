@@ -1,21 +1,21 @@
-<cfapplication name="MyApplication" sessionmanagement="yes">
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Img Details</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Document</title>
 </head>
 <body>
-    <cfset local.imgId = URL.imgId>
-    <cfquery name="displayImg" datasource ="DESKTOP-89AF345">
-        select imgName,imgFile from imgData
-        where imgId=<cfqueryparam value='#local.imgId#' cfsqltype="cf_sql_varchar">
-    </cfquery>
-    <cfoutput query="displayImg">
-        <a href="q14_third.cfm?imgId=#imgId#">#imgName#</a>
-        <img width="20" height="20" alt="Images" src="./assets/#imgFile#">
-    </cfoutput>
+    <div>
+        <cfset local.imgId=URL.imgId>
+        <cfset local.obj = createObject("component","components/q14")>
+        <cfset sendID=#local.obj.displaySecond(local.imgId)#>
+        <cfoutput>
+            <cfloop query="sendID">
+                <a href="q14_third.cfm?imgId=#sendID.imgId#">#sendID.imgName#</a>
+                <img src="./assets/#imgFile#" width="20" height="20" alt="thumbnail">
+            </cfloop>
+        </cfoutput>
+    </div>
 </body>
 </html>
-
-

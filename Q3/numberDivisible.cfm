@@ -1,4 +1,3 @@
-<cfset ProcessNumber = createObject("component", "components.divisibleByThree")>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +14,7 @@
     </form>
 
     <cfif structKeyExists(form, "numbers")>
+        <cfset ProcessNumber = createObject("component", "components.divisibleByThree")>
         <cfset divNum = form.numbers>
         <cfset result = ProcessNumber.processNumbers(divNum)>
         <h2>Numbers Divisible by 3 : <cfoutput>#result#</cfoutput></h2>

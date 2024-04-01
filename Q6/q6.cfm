@@ -1,6 +1,5 @@
-<cfset cfcInstance = createObject("component", "components.q6")>
+<cfapplication name="myAppName" sessionmanagement="true">
 
-<!--- q6.cfm --->
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,23 +10,18 @@
 <body>
     <h2>Enter Key-Value Pairs</h2>
     <form method="post">
-        <label for="key">Key:</label>
-        <input type="text" name="key" required><br>
-        
-        <label for="value">Value:</label>
-        <input type="text" name="value" required><br>
-        
+        <input type="text" name="key" placeholder="Enter Key"required><br>
+        <input type="text" name="value" placeholder="Enter Value"required><br>        
         <input type="submit" name="submit" value="Submit">
     </form>
     
+    <cfif StructKeyExists(form,"key")>
+        <cfinvoke component = "components/q6" method ="processForm" >
+            <cfinvokeargument name="key" value="#form.key#">
+            <cfinvokeargument name="value" value="#form.value#">
+        </cfinvoke>
+    </cfif>
     
-        <cfset formData = form>
-        <cfset keyValuePairs = cfcInstance.processForm(formData)>
-
-        <cfif isStruct(keyValuePairs)>
-            <h2>Structure:</h2>
-            <cfdump var="#keyValuePairs#">
-        </cfif>
     
 </body>
 </html>
