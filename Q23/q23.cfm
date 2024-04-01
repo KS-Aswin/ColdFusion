@@ -3,9 +3,9 @@
 <head>
     <title>ColdFusion Structure Example</title>
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./styles/jquery-ui.css">
     <script src="./scripts/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="./scripts/jquery-ui.min.js"></script>
     <script src="./scripts/q23.js"></script>
 </head>
 <body>

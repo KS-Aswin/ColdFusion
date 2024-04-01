@@ -18,7 +18,7 @@
     <cfif structKeyExists(form, "rating")>
         <cfset ratingValue = form.rating>
         <cfset rating = RatingLogic.getRating(ratingValue)>
-        <h2>Your rating is: <cfoutput>#rating#</cfoutput></h2>
+        <h2>Your rating is : <cfoutput>#rating#</cfoutput></h2>
     </cfif>
 </body>
 </html>

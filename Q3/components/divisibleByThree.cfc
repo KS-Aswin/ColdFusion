@@ -11,9 +11,9 @@
         </cfloop>
         
         <cfif ArrayLen(divisibleNumbers) EQ 0>
-            <cfreturn "None"> <!-- Return empty string if the length is zero -->
+            <cfreturn "None"> 
         <cfelse>
-            <cfreturn ArrayToList(divisibleNumbers, " ")> <!-- Return the list if it's not empty -->
+            <cfreturn ArrayToList(divisibleNumbers, " ")> 
         </cfif>
     </cffunction>
 </cfcomponent>

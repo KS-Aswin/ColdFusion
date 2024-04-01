@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Multiply Numbers</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Document</title>
 </head>
-<body>  
-
+<body>
     <cfoutput>
-        <!---row column--->
-        <h2>Row Column Values : </h2>
-        <cfset obj = createObject("component", "components.q16")>
-        <h3>#obj.array()#</h3>
+        <div>
+            <h2>Row Column Values</h2>
+            <cfset obj=createObject("component","components/q16")>
+            <h4>#obj.display()#</h4>
+        </div>
     </cfoutput>
     
-</body>
+<body>
 </html>

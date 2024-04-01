@@ -2,25 +2,19 @@
     <cffunction name="dateAndTime" returntype="struct">
         <cfset var result = {}>
         
-        <!--- Get today's date --->
         <cfset todayDate = now()>
         <cfset result.todayDate = dateFormat(todayDate, "dd/MMM/yyyy") & " - " & dayOfWeekAsString(dayOfWeek(todayDate))>
         
-        <!--- Get current month in numeric format --->
         <cfset result.currentMonthNumeric = month(todayDate)>
         
-        <!--- Get current month in word format --->
         <cfset result.currentMonthWord = left(monthAsString(month(todayDate)), 3)>
         
-        <!--- Get last Friday's date --->
         <cfset lastFridayDate = dateAdd("d", -((dayOfWeek(todayDate)+1) % 7), todayDate)>
         <cfset result.lastFridayDate = dateFormat(lastFridayDate, "dd/MMM/yyyy") & " - " & dayOfWeekAsString(dayOfWeek(lastFridayDate))>
         
-        <!--- Get last day of the month --->
         <cfset lastDayOfMonth = createDate(year(todayDate), month(todayDate) + 1, 1) - 1>
         <cfset result.lastDayOfMonth = dateFormat(lastDayOfMonth, "dd/MMM/yyyy") & " - " & dayOfWeekAsString(dayOfWeek(lastDayOfMonth))>
         
-        <!--- Get last 5 days including today --->
         <cfset result.lastFiveDays = []>
         <cfloop from="0" to="4" index="i">
             <cfset day = dateAdd("d", -i, todayDate)>

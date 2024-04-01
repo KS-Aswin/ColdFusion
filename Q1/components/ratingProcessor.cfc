@@ -3,18 +3,18 @@
     <cffunction name="getRating" returntype="string">
         <cfargument name="rating" type="numeric" required="true">
         
-        <cfif ARGUMENTS.rating EQ 5>
-            <cfset VARIABLES.ratingResult = "Rating: Very good">
-        <cfelseif ARGUMENTS.rating EQ 4>
-            <cfset VARIABLES.ratingResult = "Rating: Good">
-        <cfelseif ARGUMENTS.rating EQ 3>
-            <cfset VARIABLES.ratingResult = "Rating: Fair">
-        <cfelseif ARGUMENTS.rating EQ 1 OR ARGUMENTS.rating EQ 2>
-            <cfset VARIABLES.ratingResult = "Rating: Ok">
+        <cfif arguments.rating EQ 5>
+            <cfset ratingResult = " Very good">
+        <cfelseif arguments.rating EQ 4>
+            <cfset ratingResult = " Good">
+        <cfelseif arguments.rating EQ 3>
+            <cfset ratingResult = " Fair">
+        <cfelseif arguments.rating EQ 1 OR arguments.rating EQ 2>
+            <cfset ratingResult = " Ok">
         <cfelse>
-            <cfset VARIABLES.ratingResult = "Please enter a valid number between 1 and 5.">
+            <cfset ratingResult = "Please enter a valid number between 1 and 5.">
         </cfif>
         
-        <cfreturn VARIABLES.ratingResult>
+        <cfreturn ratingResult>
     </cffunction>
 </cfcomponent>

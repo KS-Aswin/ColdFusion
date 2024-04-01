@@ -4,16 +4,16 @@
         
         <cfswitch expression ="#ARGUMENTS.rating#">
             <cfcase value="5">
-                <cfset VARIABLES.ratingResult = "Rating : Very Good">
+                <cfset VARIABLES.ratingResult = " Very Good">
             </cfcase>   
             <cfcase value="4">
-                <cfset VARIABLES.ratingResult = "Rating : Good">
+                <cfset VARIABLES.ratingResult = " Good">
             </cfcase>   
             <cfcase value="3">
-                <cfset VARIABLES.ratingResult = "Rating : Fair">
+                <cfset VARIABLES.ratingResult = " Fair">
             </cfcase>   
             <cfcase value="1,2">
-                <cfset VARIABLES.ratingResult = "Rating : Ok">
+                <cfset VARIABLES.ratingResult = " Ok">
             </cfcase>  
             <cfdefaultcase>
                 <cfset VARIABLES.ratingResult = "Please enter a valid Number!..">

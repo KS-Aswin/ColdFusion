@@ -1,36 +1,8 @@
 <cfcomponent>
-
-    <cffunction name="init" access="public" returntype="q8">
-        <cfreturn this>
-    </cffunction>
-    
-    <cffunction name="processForm" returntype="void">
-        <cfargument name="formData" type="struct" required="true">
+    <cffunction name="processForm" access="public">
+        <cfargument name="key" required="true">
+        <cfargument name="value" required="true">
+        <cfset session.struct[arguments.key] =arguments.value>	
         
-        <!--- Ensure session is initialized --->
-        <cfif not structKeyExists(session, "keyValuePairs")>
-            <cfset session.keyValuePairs = {}>
-        </cfif>
-        
-        <cfif structKeyExists(arguments.formData, "submit")>
-            <!--- Get the submitted key and value --->
-            <cfparam name="arguments.formData.key" default="">
-            <cfparam name="arguments.formData.value" default="">
-            
-            <!--- Check if the key is not empty before adding to the session --->
-            <cfif len(trim(arguments.formData.key))>
-                <!--- Append the new key-value pair to the session structure --->
-                <cfset session.keyValuePairs[arguments.formData.key] = arguments.formData.value>
-            </cfif>
-        </cfif>
     </cffunction>
-    
-    <cffunction name="getKeyValuePairs" access="public" returntype="struct">
-        <cfif structKeyExists(session, "keyValuePairs")>
-            <cfreturn session.keyValuePairs>
-        <cfelse>
-            <cfreturn {}>
-        </cfif>
-    </cffunction>
-
 </cfcomponent>
