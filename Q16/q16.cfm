@@ -10,8 +10,8 @@
     <cfoutput>
         <div>
             <h2>Row Column Values</h2>
-            <cfset obj=createObject("component","components/q16")>
-            <h4>#obj.display()#</h4>
+            <cfset local.obj=createObject("component","components/q16")>
+            <h4>#local.obj.display()#</h4>
         </div>
     </cfoutput>
     

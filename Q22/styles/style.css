@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center; /* Align all content to the center */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Align all content to the center */
 }
 
 form {
@@ -10,14 +14,26 @@ form {
     padding: 20px;
     border-radius: 10px;
 }
-
+table {
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;    
+    text-align: left;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px ;
+    padding-right: 50px;
+  }
+  
 input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
-input[type="file"] {
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -41,4 +57,33 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #45a049;
+}
+button[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+a{
+    color:#000000;
+    text-decoration: none;
+}
+th a{
+    color:#1877F2;
+}
+th a,button a:hover{
+    text-decoration: underline;
+}
+button a{
+    color:#ffffff;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
 }

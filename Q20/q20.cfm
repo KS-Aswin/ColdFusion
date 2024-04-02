@@ -11,8 +11,8 @@
 
     <cfoutput>
     <cfif structKeyExists(form, "submit")>
-        <cfset obj = createObject("component", "components.q20")>
-        <h2>#obj.processCaptcha(form.captcha,session.captchaInput)#</h2>    
+        <cfset local.obj = createObject("component", "components.q20")>
+        <h2>#local.obj.processCaptcha(form.captcha,session.captchaInput)#</h2>    
     </cfif>
     <form action="q20.cfm" method="post">
         <input type="text" name="mail" placeholder="Email Address" required><br>

@@ -7,10 +7,9 @@
 <body>  
 
     <cfoutput>
-        <!---row column--->
         <h2>Values : </h2>
-        <cfset obj = createObject("component", "components.q18")>
-        #obj.queryPrint()#
+        <cfset local.obj = createObject("component", "components.q18")>
+        #local.obj.queryPrint()#
     </cfoutput>
     
 </body>

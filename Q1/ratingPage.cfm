@@ -1,5 +1,3 @@
-<!--- ratingPage.cfm --->
-<cfset RatingLogic = createObject("component", "components.ratingProcessor")>
 
 <!DOCTYPE html>
 <html>
@@ -16,9 +14,9 @@
     </form>
 
     <cfif structKeyExists(form, "rating")>
-        <cfset ratingValue = form.rating>
-        <cfset rating = RatingLogic.getRating(ratingValue)>
-        <h2>Your rating is : <cfoutput>#rating#</cfoutput></h2>
+        <cfset RatingLogic = createObject("component", "components.ratingProcessor")>
+        <cfset local.rating = RatingLogic.getRating(form.rating)>
+        <h2>Your rating is : <cfoutput>#local.rating#</cfoutput></h2>
     </cfif>
 </body>
 </html>

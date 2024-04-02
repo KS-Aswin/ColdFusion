@@ -12,10 +12,10 @@
         
         
         <cfif cffile.contentType EQ "text">
-            <cfset fileContent = fileRead(allpath)>
-            <cfset wordList = ListToArray(fileContent," ")>
-            <cfset words = ArrayLen(wordList)>
-            <cfreturn "The number of word in the Selected Text file is : "& words>
+            <cfset local.fileContent = fileRead(allpath)>
+            <cfset local.wordList = ListToArray(local.fileContent," ")>
+            <cfset local.words = ArrayLen(local.wordList)>
+            <cfreturn "The number of word in the Selected Text file is : "& local.words>
         <cfelse>
             <cfreturn "Upload a Text File">
         </cfif>

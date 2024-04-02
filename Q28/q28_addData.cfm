@@ -8,8 +8,6 @@
 <body>
     <cfoutput>
 
-
-        
         <h5><a href="q28_adminEditor.cfm">Go Back</a></h5>
         <h2>Add new Data</h2>
 
@@ -20,8 +18,8 @@
         </form>
 
         <cfif structKeyExists(form, "submit") and len(trim(form.title)) GT 0>
-            <cfset obj = createObject("component", "components.q28")>
-            <h4>#obj.addData(form.title, form.desc)#</h4>
+            <cfset local.obj = createObject("component", "components.q28")>
+            <h4>#local.obj.addData(form.title, form.desc)#</h4>
         </cfif>
 
 

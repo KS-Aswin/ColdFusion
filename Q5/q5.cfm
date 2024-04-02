@@ -19,13 +19,13 @@
     
     <cfif structKeyExists(form, "submit") and structKeyExists(form, "userDOB") and structKeyExists(form, "motherDOB")>
 
-        <cfset result = AgeBoth.calculateAges(form.userDOB, form.motherDOB)>
+        <cfset local.result = AgeBoth.calculateAges(form.userDOB, form.motherDOB)>
         
         <h2>Results:</h2>
-        <cfoutput><h2>User's Age : #result.userAge# years</h2></cfoutput>
-        <cfoutput><h2>Mother's Age when User Born : #result.userBirthMotherAge# years</h2></cfoutput>
-        <cfoutput><h2>Your Birthday will be in : #result.bDay# days</h2></cfoutput>
-        <cfoutput><h2>Your Mother's Birthday will be in : #result.bDayM# days</h2></cfoutput>
+        <cfoutput><h2>User's Age : #local.result.userAge# years</h2></cfoutput>
+        <cfoutput><h2>Mother's Age when User Born : #local.result.userBirthMotherAge# years</h2></cfoutput>
+        <cfoutput><h2>Your Birthday will be in : #local.result.bDay# days</h2></cfoutput>
+        <cfoutput><h2>Your Mother's Birthday will be in : #local.result.bDayM# days</h2></cfoutput>
 
     </cfif>
 </body>

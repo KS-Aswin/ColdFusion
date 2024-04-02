@@ -13,8 +13,8 @@
             <input type="submit" name="submit">
         </form>
         <cfif structKeyExists(form, "submit") and len(trim(form.user)) GT 0>
-            <cfset obj = createObject("component", "components.q27")>
-            <h4>#obj.signup(form.user, form.pass)#</h4>
+            <cfset local.obj = createObject("component", "components.q27")>
+            <h4>#local.obj.signup(form.user, form.pass)#</h4>
         </cfif>
     </cfoutput>
 </body>

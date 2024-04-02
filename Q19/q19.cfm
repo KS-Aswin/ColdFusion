@@ -11,12 +11,12 @@
     
     
     <form action="" method="post">
-            <input type="submit" name="submit">
+        <input type="submit" name="submit">
     </form>
     <cfif StructKeyExists(form, "submit")>
 
-        <cfset obj = createObject("component","components.q19")>
-        <h3>#obj.cookieCount()#</h3>
+        <cfset local.obj = createObject("component","components.q19")>
+        <h3>#local.obj.cookieCount()#</h3>
     
     </cfif>
     

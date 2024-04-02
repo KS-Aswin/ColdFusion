@@ -14,15 +14,15 @@
     
     <cfif structKeyExists(form, "num")>
         <cfif isNumeric(form.num) AND form.num GTE 1 AND form.num LTE 10>
-            <cfset namesObj = createObject("component", "components.q12")>
-            <cfset allData = namesObj.getAllNames()>
+            <cfset local.namesObj = createObject("component", "components.q12")>
+            <cfset local.allData = local.namesObj.getAllNames()>
         
             <h2>All Data</h2>
-            <h4><cfoutput query="allData">
+            <h4><cfoutput query="local.allData">
                 #FirstName# #LastName#<br>
             </cfoutput></h4>   
             <h5>First Name of nth Row</h2>
-            <cfoutput><h4>#namesObj.getFirstName(form.num)#</h4></cfoutput>     
+            <cfoutput><h4>#local.namesObj.getFirstName(form.num)#</h4></cfoutput>     
         <cfelse>
             <h5>Please enter a number between 1 and 10!..</h5>
         </cfif>
