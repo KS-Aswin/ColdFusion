@@ -9,13 +9,13 @@
 <body>
         <cfset local.imgId=URL.imgId>
         <cfset local.obj = createObject("component","components/q14")>
-        <cfset imgDisplay=#local.obj.displayImage(local.imgId)#>
+        <cfset local.imgDisplay=#local.obj.displayImage(local.imgId)#>
         <cfoutput>
-            <cfloop query="imgDisplay">
+            <cfloop query="local.imgDisplay">
                 <h2>Image Name</h2>
-                <h5>#imgDisplay.imgName#</h5>
+                <h5>#local.imgDisplay.imgName#</h5>
                 <h2>Image Description</h2>
-                <h5>#imgDisplay.imgDesc#</h5>
+                <h5>#local.imgDisplay.imgDesc#</h5>
                 <h2>Image</h2>
                 <img src="./assets/#imgFile#">
             </cfloop>

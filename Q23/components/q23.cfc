@@ -11,19 +11,19 @@
         <cfargument name="phFirst" required="true">
         <cfargument name="phMid" required="true">
         <cfargument name="phLast" required="true">
-        <cfset yr = year&"/"&month&"/"&day>
-        <cfset ph = phFirst&phMid&phLast>
+        <cfset local.yr = year&"/"&month&"/"&day>
+        <cfset local.ph = phFirst&phMid&phLast>
     
       
         <cfquery name = "dataUpload" datasource="DESKTOP-89AF345" >
-            INSERT INTO fileData (position, years, fname, lname, email, ph )
-            VALUES (
+            insert into fileData (position, years, fname, lname, email, ph )
+            values (
                 <cfqueryparam value="#arguments.dDown#" cfsqltype="CF_SQL_VARCHAR">,
-                <cfqueryparam value="#yr#" cfsqltype="CF_SQL_VARCHAR">,
+                <cfqueryparam value="#local.yr#" cfsqltype="CF_SQL_VARCHAR">,
                 <cfqueryparam value="#arguments.fname#" cfsqltype="CF_SQL_VARCHAR">,
                 <cfqueryparam value="#arguments.lname#" cfsqltype="CF_SQL_VARCHAR">,
                 <cfqueryparam value="#arguments.eMail#" cfsqltype="CF_SQL_VARCHAR">,
-                <cfqueryparam value="#ph#" cfsqltype="CF_SQL_VARCHAR">
+                <cfqueryparam value="#local.ph#" cfsqltype="CF_SQL_VARCHAR">
             )
         </cfquery>
     </cffunction>

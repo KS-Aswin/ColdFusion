@@ -2,8 +2,8 @@
     <cffunction name="processForm" >
         <cfargument name="key" required="true">
         <cfargument name="value" required="true">
-        <cfset struct = {}>
-        <cfset struct[arguments.key] = arguments.value>
-        <cfdump  var="#struct#">
+        <cfset local.struct = {}>
+        <cfset local.struct[arguments.key] = arguments.value>
+        <cfdump  var="#local.struct#">
     </cffunction>
 </cfcomponent>

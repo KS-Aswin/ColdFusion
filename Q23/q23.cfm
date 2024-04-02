@@ -172,9 +172,6 @@
             <p class="logo2Text">See how easy it is to <a href="privacy">create a form</a></p>
         </div>
     </div>
-
-    <cfoutput>
-    
-    </cfoutput>      
+     
 </body>
 </html>

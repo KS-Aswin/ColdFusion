@@ -17,8 +17,6 @@
             #printEditData#
         </cfif>    
         
-        <!--- <cfset obj = createObject("component", "components.q28")>
-        <cfset editData=#obj.editData(local.idPage,form.newTitle,form.newDesc)#> --->
         <h5><a href="q28_adminEditor.cfm">Go Back</a></h5>
         <h2>Enter the new values to Update</h2>
 

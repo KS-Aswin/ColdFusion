@@ -15,9 +15,8 @@
 
     <cfif structKeyExists(form, "rating")>
         <cfset RatingLogic = createObject("component", "components.ratingProcessorSwitch")>
-        <cfset ratingValue = form.rating>
-        <cfset rating = RatingLogic.processRating(ratingValue)>
-        <h2>Your rating is: <cfoutput>#rating#</cfoutput></h2>
+        <cfset local.rating = RatingLogic.processRating(form.rating)>
+        <h2>Your rating is: <cfoutput>#local.rating#</cfoutput></h2>
     </cfif>
 </body>
 </html>

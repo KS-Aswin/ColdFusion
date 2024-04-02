@@ -15,18 +15,18 @@
         <h2>Datas available for User's</h2>
         
 
-        <cfset obj = createObject("component", "components.q28")>
-        <cfset displayData=#obj.display()#>
+        <cfset local.obj = createObject("component", "components.q28")>
+        <cfset local.displayData=#local.obj.display()#>
         <div>
             <table>
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
                 </tr>
-                <cfloop query="displayData">
+                <cfloop query="local.displayData">
                     <tr>                
-                        <th>#displayData.pid# </th>
-                        <th><a href="q28_userView.cfm?idPage=#pid#">#displayData.pname#</a></th>
+                        <th>#local.displayData.pid# </th>
+                        <th><a href="q28_userView.cfm?idPage=#pid#">#local.displayData.pname#</a></th>
                     </tr> 
                 </cfloop>
             </table>

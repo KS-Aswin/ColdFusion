@@ -14,9 +14,9 @@
             <input type="submit" name="submit">
     </form>
     <cfif structKeyExists(form, "file") and !isNull(form.file)>
-        <cfset obj = createObject("component", "components.q26").printCount(form.file)>
+        <cfset local.obj = createObject("component", "components.q26").printCount(form.file)>
         <cfoutput>
-            <h4>#obj#</h4>
+            <h4>#local.obj#</h4>
         </cfoutput>
     </cfif>
     

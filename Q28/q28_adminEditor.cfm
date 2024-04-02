@@ -15,8 +15,8 @@
         <h2>Datas available for Admin or Editors</h2>
         
 
-        <cfset obj = createObject("component", "components.q28")>
-        <cfset displayData=#obj.display()#>
+        <cfset local.obj = createObject("component", "components.q28")>
+        <cfset local.displayData=#local.obj.display()#>
         <div>
             <table>
                 <tr>
@@ -26,12 +26,12 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <cfloop query="displayData">
+                <cfloop query="local.displayData">
                     <tr>                
-                        <th>#displayData.pid#</th>
-                        <th>#displayData.pname#</th>
-                        <th>#displayData.pdesc#</th>
-                        <th><a href="q28_editData.cfm?idPage=#displayData.pid#">Edit</a></th>
+                        <th>#local.displayData.pid#</th>
+                        <th>#local.displayData.pname#</th>
+                        <th>#local.displayData.pdesc#</th>
+                        <th><a href="q28_editData.cfm?idPage=#local.displayData.pid#">Edit</a></th>
                         <th><a href="components/q28.cfc?method=deleteData&idPage=#pid#">Delete</a></th>
                     </tr> 
                 </cfloop>

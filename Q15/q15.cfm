@@ -22,10 +22,10 @@
         
         <div class="createOblect">
             <h2>Using createobject : </h2>
-            <cfset obj = createObject("component", "components.q15")>
-            <h5>#obj.multiply(10,1)#</h5>
-            <h5>#obj.multiply(10,20,30)#</h5>
-            <h5>#obj.multiply(7,12,23,3)#</h5>
+            <cfset local.obj = createObject("component", "components.q15")>
+            <h5>#local.obj.multiply(10,1)#</h5>
+            <h5>#local.obj.multiply(10,20,30)#</h5>
+            <h5>#local.obj.multiply(7,12,23,3)#</h5>
         </div>
 
         <!---<cfinvoke> method--->

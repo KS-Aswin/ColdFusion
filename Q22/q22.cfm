@@ -20,10 +20,11 @@
                 </tr>
             </thead>
             <tbody>  
-                <cfset obj = createObject("component","components.q22")>
-                    #obj.jsonFile()#
+                <cfset local.obj = createObject("component","components.q22")>
+                    #local.obj.jsonFile()#
             </tbody>
         </table>
+        
     </cfoutput>
 
 </body>

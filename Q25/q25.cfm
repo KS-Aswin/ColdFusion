@@ -11,16 +11,16 @@
         <h2>ColdFusion & DB</h2>
     </div>
     <div>
-        <form action="main.cfm" method="post">
-            <textarea name="datas" placeholder="Enter the data" required></textarea>
+        <form action="q25.cfm" method="post">
+            <textarea name="data" placeholder="Enter the data" required></textarea>
             <input type="submit"  name="submit">
         </form>
     </div>
     <div>
         <cfoutput>
-            <cfif StructKeyExists(form, "datas")>
-                <cfset local.demo=createObject("component","components/tagCloud")>
-                    <h4>#local.demo.inserting(form.datas)#</h4>
+            <cfif StructKeyExists(form, "data")>
+                <cfset local.obj=createObject("component","components/q25")>
+                    <h4>#local.obj.insertingData(form.data)#</h4>
             </cfif>
         </cfoutput>
     </div>

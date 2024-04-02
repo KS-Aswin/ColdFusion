@@ -12,11 +12,11 @@ $(document).ready(function() {
             data: {name: name, email: email}, 
             dataType: "json",
             success: function(response) {
-                if (response.message == "exists") {
+                if (response.message == "existing") {
                     alert('Email id is Already Subscribed');
                     $('#submit').prop('disabled',true);
                 } else {
-                    alert('Email id is not Subscribed Yet');
+                    alert('Email id is not Subscribed Yet. Click the Submit button to Subscribe');
                     $('#submit').prop('disabled',false);
                 }
             },

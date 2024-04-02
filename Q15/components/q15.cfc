@@ -1,4 +1,3 @@
-<!--- components/q11.cfc --->
 <cfcomponent>
     <cffunction name="multiply" access="public" returnType="numeric">
         <cfargument name="FirstNum" type="numeric">
