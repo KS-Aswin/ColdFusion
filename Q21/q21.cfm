@@ -13,7 +13,7 @@
             Dear #form.name#,
             #form.subject#
         </cfsavecontent>
-        <cfdump  var="	#test#">
+        <cfdump  var="#test#">
             <cfinvokeargument  name="name"  value="#form.name#">
             <cfinvokeargument  name="mail"  value="#form.mail#">
             <cfinvokeargument  name="subject"  value="#form.subject#">

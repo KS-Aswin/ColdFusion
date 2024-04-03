@@ -17,7 +17,10 @@
     <cfif StructKeyExists(form, "submit") and isNumeric(num)>
 
         <cfset local.obj = createObject("component","components.q17")>
-        <h3>#local.obj.print(form.num)#</h3>
+        <cfset local.number=local.obj.print(form.num)>
+        <cfloop array="#local.number#" index="num">
+            <h3 style="color:#num.color#;"> #num.number#</h3>
+        </cfloop>
     
     </cfif>
     

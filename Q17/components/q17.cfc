@@ -1,14 +1,13 @@
 <cfcomponent>
-    <cffunction name="print" access="public" returnType="string">
+    <cffunction name="print" access="public">
         <cfargument name="num" type="numeric" required="true">
-        <cfset local.output = "">
-        <cfloop index="i" from="1" to="#num#">
+        <cfset local.output = []>
+        <cfloop index="i" from="1" to="#arguments.num#">
             <cfif i mod 2 EQ 0>
-                <cfset local.color = "green">
+                <cfset arrayAppend(local.output, {number=i , color ="blue"})>
             <cfelse>
-                <cfset local.color = "blue">
+                <cfset arrayAppend(local.output, {number=i , color ="green"})>
             </cfif>
-            <cfset local.output &= "<span style='color: #local.color#;'>#i#</span><br>">
         </cfloop>
         <cfreturn local.output>
     </cffunction>
