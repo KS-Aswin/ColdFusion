@@ -11,6 +11,7 @@
     
     
     <form action="" method="post">
+        <h2>Visited Count</h2>
         <input type="submit" name="submit">
     </form>
     <cfif StructKeyExists(form, "submit")>

@@ -21,9 +21,10 @@
             <cfinvokeargument name="key" value="#form.key#">
             <cfinvokeargument name="value" value="#form.value#">
         </cfinvoke>
+        <cfdump var ="#session.newStruct#">
     </cfif>  
     
-    <cfdump var ="#session.newStruct#">
+    
 
 </body>
 </html>

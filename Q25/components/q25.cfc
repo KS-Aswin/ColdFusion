@@ -9,14 +9,14 @@
                     <cfloop array="#countWord#" index="word">
                         <cfquery name="checkData" datasource="DESKTOP-89AF345">
                             select word from ItemTable
-                            where word=<cfqueryparam value="#local.word#" cfsqltype="cf_sql_varchar">
+                            where word=<cfqueryparam value="#word#" cfsqltype="cf_sql_varchar">
                         </cfquery>
                         <cfif checkData.recordCount>
                             <cfcontinue>  
                             <cfelse>
                             <cfquery datasource="DESKTOP-89AF345" name="insertWord" result="insertdata">
-                                INSERT INTO ItemTable(local.word) 
-                                VALUES (<cfqueryparam value="#local.word#" cfsqltype="cf_sql_varchar">)
+                                INSERT INTO ItemTable(word) 
+                                VALUES (<cfqueryparam value="#word#" cfsqltype="cf_sql_varchar">)
                             </cfquery>
                         </cfif>
                     </cfloop>
