@@ -6,15 +6,15 @@
 
 </head>
 <body>
-    <cfset local.mathOps = new components.q11()>
+    <cfset local.obj=createObject("component","components/q11")>
     
-    <cfset local.res1 = local.mathOps.multiply(1, 2)>
+    <cfset local.res1 = local.obj.multiply([1, 2])>
     <cfoutput><h2>#local.res1#</h2></cfoutput>
     
-    <cfset local.res2 = local.mathOps.multiply(1, 2, 3)>
+    <cfset local.res2 = local.obj.multiply([1, 2, 3])>
     <cfoutput><h2>#local.res2#</h2></cfoutput>
     
-    <cfset local.res3 = local.mathOps.multiply(1, 2, 3, 4)>
+    <cfset local.res3 = local.obj.multiply([1, 2, 3, 4])>
     <cfoutput><h2>#local.res3#</h2></cfoutput>
 </body>
 </html>

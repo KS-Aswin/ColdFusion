@@ -7,7 +7,7 @@
         <cfset local.count = 0>
         <cfset local.wordList = ListToArray(local.string, " ")>
         <cfloop from="1" to="#ArrayLen(local.wordList)#" index="i">
-            <cfif CompareNoCase(local.wordList[i], #local.word#) EQ 0>
+            <cfif CompareNoCase(local.wordList[i], local.word) EQ 0>
                 <cfset local.count = local.count + 1>
             </cfif>
         </cfloop>

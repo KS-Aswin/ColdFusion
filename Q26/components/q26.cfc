@@ -2,9 +2,7 @@
 <cfcomponent>
     <cffunction name="printCount" access="public">
         <cfargument name="file" type="any" required="true">
-        
-        
-        
+ 
         <cffile action="upload" filefield="form.file" destination="#ExpandPath("./TextFiles/")#" nameconflict="makeunique">
         <cfset local.path=ExpandPath("./TextFiles/")>
         <cfset local.file=cffile.clientFile>
