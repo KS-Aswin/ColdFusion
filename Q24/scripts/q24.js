@@ -25,4 +25,23 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#submit').click(function() {
+        var name = $('#name').val(); 
+        var email = $('#email').val();
+        $.ajax({
+            url: 'components/q24.cfc?method=mailUpload',
+            type: 'post',
+            data: {name: name, email: email}, 
+            dataType: "json",
+            success: function(response) {
+                if (response.message == "success") {
+                    alert('Email id Subscribed Successfully');
+                }
+            },
+            error: function(xhr, status, error) {
+                alert("An error occurred : " +error);
+            }
+        });
+    });
 });

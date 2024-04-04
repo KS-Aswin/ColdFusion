@@ -10,13 +10,13 @@
         </cfquery>
         
         <cfif emailCheck.recordCount >
-            <cfreturn {"message":"existing"}>
+            <cfreturn  {"message":"existing"} >
         <cfelse>
-            <cfreturn {"message":"notexisting"}>
+            <cfreturn  {"message":"notexisting"} >
         </cfif>   
     </cffunction>
     
-    <cffunction name="mailUpload" access="public">
+    <cffunction name="mailUpload" access="remote">
         <cfargument name="name" required="true">
         <cfargument name="email" required="true">
         
@@ -27,7 +27,8 @@
                 <cfqueryparam value="#arguments.email#" cfsqltype="CF_SQL_VARCHAR">
             )
         </cfquery>
-        
-        <cfreturn "Email Uploaded Successfully">
+        <cfif emailUpload.recordCount >
+            <cfreturn  {"message":"success"} >
+        </cfif>
     </cffunction>
 </cfcomponent>
