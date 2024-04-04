@@ -19,16 +19,5 @@
             <input type="submit" id="submit" name="submit" value="Submit" disabled>
         </form>
     </div>
-   <div>
-        <cfif structKeyExists(form, "email") and len(trim(form.email)) GT 0>
-            <cfinvoke component="components.q24" method="mailUpload" returnvariable="successMsg">
-                <cfinvokeargument name="name" value="#form.name#">
-                <cfinvokeargument name="email" value="#form.email#">
-            </cfinvoke>
-            <cfoutput>
-            <h4>#successMsg#</h4> 
-            </cfoutput>
-        </cfif>
-    </div>
 </body>
 </html>
