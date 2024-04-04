@@ -16,7 +16,7 @@
         </cfif>   
     </cffunction>
     
-    <cffunction name="mailUpload" access="remote">
+    <cffunction name="mailUpload" access="remote" returnformat="json">
         <cfargument name="name" required="true">
         <cfargument name="email" required="true">
         
@@ -27,8 +27,7 @@
                 <cfqueryparam value="#arguments.email#" cfsqltype="CF_SQL_VARCHAR">
             )
         </cfquery>
-        <cfif emailUpload.recordCount >
-            <cfreturn  {"message":"success"} >
-        </cfif>
+        <cfreturn  {"message":"success"} >
+        
     </cffunction>
 </cfcomponent>
