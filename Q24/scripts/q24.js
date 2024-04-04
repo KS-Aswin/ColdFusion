@@ -34,6 +34,7 @@ $(document).ready(function() {
             type: 'post',
             data: {name: name, email: email}, 
             dataType: "json",
+            
             success: function(response) {
                 if (response.message == "success") {
                     alert('Email id Subscribed Successfully');
