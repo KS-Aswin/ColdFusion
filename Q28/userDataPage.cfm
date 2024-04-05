@@ -7,10 +7,8 @@
 </head>
 <body>
     <cfoutput>
-        
-        
-        <cfset local.idPage=URL.idPage>
 
+        <cfset local.idPage=URL.idPage>
 
         <h5><a href="userPage.cfm">Go Back</a></h5>
 

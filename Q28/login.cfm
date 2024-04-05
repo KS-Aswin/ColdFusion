@@ -1,3 +1,6 @@
+
+<cfset local.forSignin = createObject("component","controls/pages").signin()>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +9,7 @@
 </head>
 <body>
     <cfoutput>
+
         <form action="login.cfm" method="post" >
             <h2>Log In</h2>
             <input type="text" name="user" id="user" placeholder="Enter Username" required>
@@ -14,8 +18,9 @@
         </form>
         <cfif structKeyExists(form, "submit") and len(trim(form.user)) GT 0>
             <cfset local.obj = createObject("component", "controls.pages")>
-            <h4>#local.obj.signup(form.user, form.pass)#</h4>
+            <h4>#local.obj.doSignin(form.user, form.pass)#</h4>
         </cfif>
+        
     </cfoutput>
 </body>
 </html>

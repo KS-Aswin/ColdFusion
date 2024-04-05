@@ -8,8 +8,7 @@
 <body>
     <cfoutput>
 
-
-        <h5><a href="login.cfm">Log Out</a></h5>
+        <h5><a href="controls/pages.cfc?method=logout">Log Out</a></h5>
         <h2>Welcome user</h2>
 
         <h2>Datas available for User's</h2>
