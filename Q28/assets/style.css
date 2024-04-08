@@ -39,6 +39,7 @@ input[type="password"] {
     margin-bottom: 10px;
     box-sizing: border-box;
 }
+
 textarea {
     width: 100%;
     padding: 10px;
@@ -59,6 +60,7 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 button[type="submit"] {
+    width: 10%;
     padding: 10px;
     background-color: #4CAF50;
     color: white;
@@ -69,6 +71,21 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #45a049;
+}
+.cancel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #063dd4;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+.cancel:hover {
+    background-color: #032f81;
 }
 a{
     color:#000000;
@@ -86,4 +103,10 @@ button a{
 }
 a:hover{
     text-decoration: underline;
+}
+.errorMsg{
+    color:red;
+}
+.successMsg{
+    color:green;
 }
