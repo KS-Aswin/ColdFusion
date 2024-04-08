@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Img Details</title>
+    <title>Pages</title>
     <link rel="stylesheet" type="text/css" href="./assets/style.css">
 </head>
 <body>
