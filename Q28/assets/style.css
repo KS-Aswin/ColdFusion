@@ -73,10 +73,11 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 .cancel{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #063dd4;
+    background-color: #837e7e;
     padding: 10px;
     color: white;
     border: none;
@@ -85,7 +86,7 @@ button[type="submit"]:hover {
     margin: 10px 0px;
 }
 .cancel:hover {
-    background-color: #032f81;
+    background-color: #a09d9d;
 }
 a{
     color:#000000;
@@ -109,4 +110,11 @@ a:hover{
 }
 .successMsg{
     color:green;
+}
+
+.header{
+    width: 100%;
+    padding:0px 20px;
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,0 +1,14 @@
+.nav-link{
+    color:#ffffff;
+}
+.nav-link:hover{
+    text-decoration: underline;
+    color:#ffffff;
+}
+a{
+    font-size: 14px !important;
+}
+.saveFile{
+    width: 250px !important;
+    height: 250px !important;
+}

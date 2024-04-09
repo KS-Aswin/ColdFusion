@@ -3,6 +3,7 @@
 <cfset variables.pdesc = "">
 <cfset variables.success = "">
 <cfset variables.errorMsg = "">
+<cfset variables.successMsg = "">
 
 <cfif structKeyExists(url,"idPage")>        
     <cfset variables.idPage = "#url.idPage#">
@@ -16,7 +17,7 @@
     <cfset variables.headings = "Save Page">
     <cfset variables.btnValue = "Save">
 <cfelse>    
-    <cfset variables.headings = "Add Pages">
+    <cfset variables.headings = "Add Page">
     <cfset variables.btnValue = "Add">
 </cfif>
 
@@ -37,7 +38,6 @@
             <cfif isNumeric(form.desc)>
                 <cfset variables.errorMsg &="Description must contain String"&"<br>">
             </cfif>
-
         </cfif>
         <cfif len(trim(variables.errorMsg)) EQ 0>        
             <cfset variables.objectEditData = createObject("component", "controls/pages")>
@@ -51,22 +51,21 @@
 <html>
 <head>
     <title>Pages</title>
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">    
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">  
+    <script src="./assets/jquery.min.js"></script>  
     <script src="./assets/common.js"></script>    
-    <script src="./assets/jquery.min.js"></script>
 </head>
 <body> 
     <h2>#variables.headings#</h2>
     <h2 class="successMsg">#variables.success#</h2>    
-    <h2 class="errorMsg">#variables.errorMsg#</h2>
-    <form action="" method="post">   
-        <input type="text" name="title" id="title" value="#pname#" placeholder="Enter the Title">
-        <input type="text" name="desc" id="desc" value="#pdesc#" placeholder="Enter the Description">
+    <h5  class="errorMsg">#variables.errorMsg#</h5>
+    <form action="" id="target" method="post">   
+        <input type="text" name="title" id="title" value="#pname#" placeholder="Enter the Title*">
+        <input type="text" name="desc" id="desc" value="#pdesc#" placeholder="Enter the Description*">
         <input type="hidden" name="pageId" id="pageId" value="#variables.idPage#">
         <input type="submit" value="#btnValue#" name="submit" id="submitBtn">
-        <button class="cancel"><a href="list.cfm">Cancel</a></button>
+        <button class="cancel"><a href="list.cfm">Back</a></button>
     </form>
-
 </body>
 </html>   
 </cfoutput>
