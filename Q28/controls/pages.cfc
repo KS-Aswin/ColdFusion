@@ -1,12 +1,14 @@
 <cfcomponent>
     <cffunction name="signin" access="public">
-        <cfif session.login EQ true >
-            <cfif session.role EQ "user">
-                <cflocation url="list.cfm">
-            <cfelseif session.role EQ "admin" || session.role EQ "editor">                
-                <cflocation url="list.cfm">
-            </cfif>
+        <cfif session.login>
+            <cflocation url="list.cfm">
         </cfif>
+    </cffunction>
+
+    <cffunction name="logout" access="remote" >
+        <cfset StructClear(Session)>
+        <cfset session.login=false>
+        <cflocation  url="../login.cfm">
     </cffunction>
     
     <cffunction name="doSignin" access="public" returntype="string">
@@ -33,14 +35,9 @@
         </cfif>
     </cffunction>
 
-    <cffunction name="logout" access="remote" >
-        <cfset session.login=false>
-        <cflocation  url="../login.cfm">
-    </cffunction>
-
-    <cffunction  name="display" access="public" >
+    <cffunction  name="displayPage" access="public" >
         <cfquery name="displayData" >
-            select * from pageTable
+            select *  from pageTable
         </cfquery>
         <cfreturn displayData>
     </cffunction>
@@ -67,14 +64,22 @@
             </cfquery>
             <cfreturn "Edited Successfully">
         <cfelseif arguments.idPage EQ 0>
-            <cfquery name="insertData" >
-                insert into pageTable (pname, pdesc)
-                values (
-                    <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">,
-                    <cfqueryparam value="#arguments.desc#" cfsqltype="cf_sql_varchar">
-                )
-            </cfquery>            
-            <cfreturn "Added Successfully">
+            <cfquery name="findPage">
+                select 1 from pageTable 
+                where pname = <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">
+            </cfquery>
+            <cfif findPage.recordCount>
+                <cfreturn "Title is already Exist">
+            <cfelse>
+                <cfquery name="insertData" >
+                    insert into pageTable (pname, pdesc)
+                    values (
+                        <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">,
+                        <cfqueryparam value="#arguments.desc#" cfsqltype="cf_sql_varchar">
+                    )
+                </cfquery>            
+                <cfreturn "Added Successfully">
+            </cfif>
         </cfif>
         <cfreturn "Invalid">
     </cffunction>
@@ -88,7 +93,7 @@
         <cfreturn displayValue>
     </cffunction> 
 
-    <cffunction  name="deleteData" access="remote" >
+    <cffunction  name="deletePage" access="remote" >
         <cfargument  name="idPage" required="true">
         <cfquery name="deleteTheData" >
             delete from pageTable
