@@ -25,8 +25,8 @@
     <cfif structKeyExists(form,"pageId") and isNumeric(form.pageId)>
         <cfif structKeyExists(form,"title") or structKeyExists(form,"desc")>
             <cfif len(trim(form.title))eq 0>
-                <cfset variables.errorMsg &="Title is required"&"<br>">
-            <cfelseif REFind("[^A-Za-z]", form.title)>
+                <cfset variables.errorMsg &="Title is required"&"<br>"> 
+            <cfelseif REFind("[^A-Za-z]+$", form.title)>
                 <cfset variables.errorMsg &= "Title must contain String values only" & "<br>">                        
             </cfif>
             <cfif len(trim(form.desc))eq 0>
@@ -51,21 +51,57 @@
 <html>
 <head>
     <title>Pages</title>
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">  
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/homePage.css">
+    <link rel="stylesheet" type="text/css" href="./assets/editPage.css">
     <script src="./assets/jquery.min.js"></script>  
-    <script src="./assets/common.js"></script>    
+    <script src="./assets/common.js"></script>   
 </head>
-<body> 
-    <h2>#variables.headings#</h2>
-    <h2 class="successMsg">#variables.success#</h2>    
-    <h5  class="errorMsg">#variables.errorMsg#</h5>
-    <form action="" id="target" method="post">   
-        <input type="text" name="title" id="title" value="#pname#" placeholder="Enter the Title*">
-        <input type="text" name="desc" id="desc" value="#pdesc#" placeholder="Enter the Description*">
-        <input type="hidden" name="pageId" id="pageId" value="#variables.idPage#">
-        <input type="submit" value="#btnValue#" name="submit" id="submitBtn">
-        <button class="cancel"><a href="list.cfm">Back</a></button>
-    </form>
+<body>
+    <div class="d-flex align-items-center justify-content-center col-12 ">
+        <nav class="navbar container-fluid navbar-expand-lg flex-nowrap navbar-dark bg-primary px-3 px-sm-5 col-12">
+            <a class="navbar-brand" href=""><h3><b>Info-Hub</b></h3></a>
+            <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarColor02">
+                    <div class="d-flex  gap-3">
+                        <a class="nav-link" title="Go to Home" href="./homePage.cfm">Home</a>
+                        <a class="nav-link" title="View the List" href="./list.cfm">View List</a>
+                    </div>
+                    <a class="nav-link" title="Go to Log In" href="controls/pages.cfc?method=logout">Log Out</a>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class=" col-8">
+        <div class="list d-flex flex-column align-items-center justify-content-between col-12">
+            <div class="col-8">    
+                <h5 class="errorMsg">#variables.errorMsg#</h5>
+                <h2 class="successMsg mb-3">#variables.success#</h2>
+                <h2 class="mb-4"><b>#variables.headings#</b></h2>
+                <form action="" id="target" method="post">   
+                    <div class="d-flex align-items-center">
+                        <label class="w-100 text-start" for="title">Page Title<span class="imp">*</span></label>
+                        <input class="col-8" type="text" name="title" id="title" value="#pname#">
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <label class="w-100 text-start" for="desc">Page Description<span class="imp">*</span></label>
+                        <textarea class="col-8 " name="desc" id="desc" >#pdesc#</textarea>
+                    </div>
+                    <input type="hidden" name="pageId" id="pageId" value="#variables.idPage#">
+                    <div class="d-flex align-items-center justify-content-end my-2">
+                        <input class="cancel ok text-center col-1 p-2" type="submit" value="#btnValue#" name="submit" id="submitBtn">
+                        <button class="cancel back text-center col-1 ms-2 p-2"><a href="list.cfm">Cancel</a></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3 col-12">
+                <li class="nav-item"><a href="./homePage.cfm" title="Go to Home" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="./list.cfm" title="View the List" class="nav-link px-2 text-body-secondary">View List</a></li>
+                <li class="nav-item"><a href="controls/pages.cfc?method=logout" title="Go to Log In" class="nav-link px-2 text-body-secondary">Log Out</a></li>
+            </ul>
+    </div>
 </body>
 </html>   
 </cfoutput>

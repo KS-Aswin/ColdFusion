@@ -1,7 +1,7 @@
 <cfcomponent>
     <cffunction name="signin" access="public">
         <cfif session.login>
-            <cflocation url="list.cfm">
+            <cflocation url="homePage.cfm">
         </cfif>
     </cffunction>
 
@@ -25,10 +25,10 @@
         <cfif checkUser.recordCount >
             <cfif checkUser.role EQ "user">
                 <cfset session.login = true>
-                <cflocation url="list.cfm">    
+                <cflocation url="homePage.cfm">    
             <cfelseif checkUser.role EQ "admin" || checkUser.role EQ "editor">
                 <cfset session.login = true>
-                <cflocation url="list.cfm">  
+                <cflocation url="homePage.cfm">  
             </cfif>
         <cfelse>
             <cfreturn "Login Failed!..Invalid Username or Password!">          

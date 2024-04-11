@@ -1,0 +1,38 @@
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #007cff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button[type="submit"]:hover {
+    filter: brightness(110%);
+}
+button a{
+    color: #ffffff;
+    text-decoration: none;
+}
+button a:hover{
+    text-decoration: underline;
+}
+.list{
+    height: 86vh;
+}
+.imp{
+    color:red;
+}
+
+.ok{
+    background-color: #4CAF50;
+}
+.back{
+    background-color: grey;  
+}

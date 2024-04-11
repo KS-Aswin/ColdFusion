@@ -11,20 +11,20 @@
 </head>
 <body>
 <cfoutput>
-    <cfif session.role eq "admin" || session.role eq "editor">
-        <cfset session.login = true>
         <div class="d-flex align-items-center justify-content-center col-12 ">
             <nav class="navbar container-fluid navbar-expand-lg flex-nowrap navbar-dark bg-primary px-3 px-sm-5 col-12">
                 <a class="navbar-brand" href=""><h3><b>Info-Hub</b></h3></a>
                 <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarColor02">
                         <div class="d-flex  gap-3">
-                                <a class="nav-link" title="Go to Home" href="">Home</a>
-                                <a class="nav-link" title="View the List" href="./list.cfm">View List</a>
+                            <a class="nav-link" title="Goto Home" href="./welcomePage.cfm">Home</a>
                         </div>
-                        <a class="nav-link" title="Go to Log In" href="controls/pages.cfc?method=logout">Log Out</a>
+                        <a class="nav-link" title="Log In Here" href="./login.cfm">Log In</a>
                     </ul>
                 </div>
             </nav>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mt-4">
+            <h3>As a Admin</h3>
         </div>
         <div class="d-flex align-items-center justify-content-center px-5">
             <div class="card container-fluid col-4 align-items-center mt-5 mb-1 mx-1 p-2">
@@ -49,26 +49,6 @@
                 </div>
             </div>
         </div>
-        <ul class="nav justify-content-center border-bottom pt-5 mt-5 pb-3 mb-3">
-            <li class="nav-item"><a href="./homePage.cfm" class="nav-link px-2 text-body-secondary">Home</a></li>
-                    <li class="nav-item"><a href="./list.cfm" class="nav-link px-2 text-body-secondary">View List</a></li>
-            <li class="nav-item"><a href="controls/pages.cfc?method=logout" class="nav-link px-2 text-body-secondary">Log Out</a></li>
-        </ul>
-    <cfelse>
-        <cfset session.login = true>
-        <div class="d-flex align-items-center justify-content-center col-12 ">
-            <nav class="navbar container-fluid navbar-expand-lg flex-nowrap navbar-dark bg-primary px-3 px-sm-5 col-12">
-                <a class="navbar-brand" href=""><h3><b>Info-Hub</b></h3></a>
-                <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarColor02">
-                        <div class="d-flex  gap-3">
-                                <a class="nav-link" title="Go to Home" href="">Home</a>
-                                <a class="nav-link" title="View the List" href="./list.cfm">View List</a>
-                        </div>
-                        <a class="nav-link" title="Go to Log In" href="controls/pages.cfc?method=logout">Log Out</a>
-                    </ul>
-                </div>
-            </nav>
-        </div>
         <div class="d-flex align-items-center justify-content-center px-5">
             <div class="card container-fluid col-10 align-items-center mt-5 mb-1 mx-1 p-2">
                 <h3>As a User</h3>
@@ -79,11 +59,8 @@
             </div>
         </div>
         <ul class="nav justify-content-center border-bottom pt-5 mt-5 pb-3 mb-3">
-            <li class="nav-item"><a href="./homePage.cfm" title="Go to Home" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="./list.cfm" title="View the List" class="nav-link px-2 text-body-secondary">View List</a></li>
-            <li class="nav-item"><a href="controls/pages.cfc?method=logout" title="Go to Log In" class="nav-link px-2 text-body-secondary">Log Out</a></li>
+            <li class="nav-item"><a href="./login.cfm" title="Log In Here" class="nav-link px-2 text-body-secondary">Log In</a></li>
         </ul>
-    </cfif>
 </cfoutput>
 </body>
 </html>
