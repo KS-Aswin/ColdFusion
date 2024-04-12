@@ -1,14 +1,14 @@
 <cfcomponent>
     <cffunction name="signin" access="public">
         <cfif session.login>
-            <cflocation url="homePage.cfm">
+            <cflocation url="./homePage.cfm">
         </cfif>
     </cffunction>
 
     <cffunction name="logout" access="remote" >
         <cfset StructClear(Session)>
         <cfset session.login=false>
-        <cflocation  url="../login.cfm">
+        <cflocation  url="./login.cfm">
     </cffunction>
     
     <cffunction name="doSignin" access="public" returntype="string">
@@ -25,10 +25,10 @@
         <cfif checkUser.recordCount >
             <cfif checkUser.role EQ "user">
                 <cfset session.login = true>
-                <cflocation url="homePage.cfm">    
+                <cflocation url="./homePage.cfm">    
             <cfelseif checkUser.role EQ "admin" || checkUser.role EQ "editor">
                 <cfset session.login = true>
-                <cflocation url="homePage.cfm">  
+                <cflocation url="./homePage.cfm">  
             </cfif>
         <cfelse>
             <cfreturn "Login Failed!..Invalid Username or Password!">          
@@ -47,7 +47,7 @@
         <cfquery name="displayUserData" >
             select * from pageTable
             where pid=<cfqueryparam value="#arguments.pid#" cfsqltype="cf_sql_varchar"> 
-        </cfquery>
+        </cfquery> 
         <cfreturn displayUserData>
     </cffunction>
 
@@ -99,7 +99,7 @@
             delete from pageTable
             where pid=<cfqueryparam value="#arguments.idPage#" cfsqltype="cf_sql_varchar">
         </cfquery>
-        <cflocation  url="../list.cfm">
+        <cflocation  url="../view/list.cfm">
     </cffunction>
  
 </cfcomponent>
