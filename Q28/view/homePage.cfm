@@ -1,12 +1,9 @@
-<!---header--->
 <cfinclude template="./header.cfm">
-<body>
 <cfoutput>
-    <!---navbar--->
     <cfinclude template="./navbar.cfm">
     <cfif session.role eq "admin" || session.role eq "editor">
         <cfset session.login = true>
-        <div class="mainbody d-flex align-items-center justify-content-center px-5">
+        <div class="mainbodyAdmin d-flex align-items-center justify-content-center px-5">
             <div class="card container-fluid col-4 align-items-center mt-5 mb-1 mx-1 p-2">
                 <h3>Admins can add new Files</h3>
                 <img class="card-img-top saveFile col-2 my-3" src="../assets/images/saveFile.png" alt="Card image cap">
@@ -41,6 +38,5 @@
             </div>
         </div>
     </cfif>
-<!---footer--->
 <cfinclude template="./footer.cfm">
 </cfoutput>
