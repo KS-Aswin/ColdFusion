@@ -1,37 +1,39 @@
 <cfcomponent>
     <cffunction name="signin" access="public">
         <cfif session.login>
-            <cflocation url="./homePage.cfm">
+            <cflocation url="../view/homePage.cfm">
         </cfif>
     </cffunction>
 
     <cffunction name="logout" access="remote" >
         <cfset StructClear(Session)>
         <cfset session.login=false>
-        <cflocation  url="./login.cfm">
+        <cflocation  url="../view/login.cfm">
     </cffunction>
-    
-    <cffunction name="doSignin" access="public" returntype="string">
-        <cfargument name="user" type="string" required="true">
-        <cfargument name="pass" type="string" required="true">  
 
-        <cfquery name="checkUser" >
-            select role from userAdmin
-            where uname=<cfqueryparam value="#arguments.user#" cfsqltype="cf_sql_varchar">
-            and pass=<cfqueryparam value="#arguments.pass#" cfsqltype="cf_sql_varchar">
-        </cfquery> 
-        <cfset session.role = checkUser.role>
+    <cffunction name="doSignin" access="remote" retrunType="json" returnformat="json">
+        <cfargument name="user" required="true">
+        <cfargument name="pass" required="true">
         
-        <cfif checkUser.recordCount >
-            <cfif checkUser.role EQ "user">
-                <cfset session.login = true>
-                <cflocation url="./homePage.cfm">    
-            <cfelseif checkUser.role EQ "admin" || checkUser.role EQ "editor">
-                <cfset session.login = true>
-                <cflocation url="./homePage.cfm">  
+        <cfquery name="checkLogin" result="loginCheck">
+            select uid,uname,pass from userAdmin
+            where uname=<cfqueryparam value="#arguments.user#" cfsqltype="cf_sql_varchar">
+            AND pass=<cfqueryparam value="#arguments.pass#" cfsqltype="cf_sql_varchar"> 
+        </cfquery>
+
+        <cfset local.id = checkLogin.uid>
+        <cfif checkLogin.recordCount>
+            <cfquery name="checkRole">
+                select role from userAdmin
+                where uid=<cfqueryparam value="#local.id#" cfsqltype="cf_sql_integer">
+            </cfquery>
+            <cfset session.role=checkRole.role>
+            <cfif session.role EQ "admin" || session.role EQ "editor" || session.role EQ "user">
+                <cfreturn {"message":"exists"}>
+                <!---<cflocation url="../view/homePage.cfm">--->
             </cfif>
-        <cfelse>
-            <cfreturn "Login Failed!..Invalid Username or Password!">          
+            <cfelse>
+                <cfreturn {"message":"invalid"}>
         </cfif>
     </cffunction>
 

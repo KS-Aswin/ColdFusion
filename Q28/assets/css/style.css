@@ -1,120 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Align all content to the center */
+    justify-content: center; 
 }
-
-form {
-    margin: 50px auto; /* Center the form horizontally */
-    width: 300px;
-    border: 2px solid #bbbfbf; /* Add border with specified color */
-    padding: 20px;
+h2{
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+.loginForm {
+    margin: 10px auto;
+    width: 450px;
+    border: 2px solid #bbbfbf;
     border-radius: 10px;
-}
-table {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;    
-    text-align: left;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 10px;
-  }
-  
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-button[type="submit"] {
-    width: 10%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-.cancel{
-    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #837e7e;
+}
+ 
+.loginInput {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.loginSubmit {
+    width: 83%;
+    margin-bottom: 10px;
     padding: 10px;
+    background-color: #007cff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px 0px;
 }
-.cancel:hover {
-    background-color: #a09d9d;
+
+.loginSubmit:hover {
+    filter: brightness(80%);
 }
-a{
-    color:#000000;
-    text-decoration: none;
+
+.loginCancel{
+    width: 83%;
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
-th a{
-    color:#1877F2;
-}
-th a,button a:hover{
-    text-decoration: underline;
-}
-button a{
+.loginCancel a{
     color:#ffffff;
     text-decoration: none;
 }
-a:hover{
+
+#loginMsg{
+    height: 30px;
+}
+
+.nav-link{
+    color:#ffffff;
+}
+.nav-link:hover{
+    color:#ffffff;
     text-decoration: underline;
 }
+.navbarlogIn{
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+a{
+    font-size: 14px !important;
+}
+.saveFile{
+    width: 250px !important;
+    height: 200px !important;
+}
+.loginImg{
+    width: 240px !important;
+    height: 240px !important;
+}
+.saveFile2{
+    width: 500px !important;
+    height: 300px !important;
+}
+.card-text{
+    text-align: start;
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #007cff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.addButton:hover {
+    filter: brightness(110%);
+}
+.addButton a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.addButton a:hover{
+    text-decoration: underline;
+}
+
+.list{
+    height: 58.5vh;
+}
+
+.editPage{
+    height: 66vh;
+}
+.imp{
+    color:red;
+}
+.editButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #007cff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.editButton:hover {
+    filter: brightness(110%);
+}
+.editButton a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.editButton a:hover{
+    text-decoration: underline;
+}
+.ok{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #007cff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #ffffff;
+}
+.back{
+    background-color: grey;  
+}
+
+
 .errorMsg{
     color:red;
+    height: 20px;
+    font-size: 14px;
 }
 .successMsg{
     color:green;
-}
-
-.header{
-    width: 100%;
-    padding:0px 20px;
-    display: flex;
-    justify-content: space-between;
+    height: 20px;
+    font-size: 14px;
 }

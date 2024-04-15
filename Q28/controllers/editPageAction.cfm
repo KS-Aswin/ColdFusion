@@ -4,11 +4,9 @@
 <cfset variables.success = "">
 <cfset variables.errorMsg = "">
 <cfset variables.successMsg = "">
-<cfset variables.list = "0,1,2,3,4,5,6,7,8,9,`,~,!,@,$,%,^,&,*,(,),_,-,+,=,,,.,<,>,/,?,:,;,',[,],{,},|,\,"",##">
-
 <cfif structKeyExists(url,"idPage")>        
     <cfset variables.idPage = "#url.idPage#">
-    <cfset local.objectValueDisplay = createObject("component","../models/pages")>
+    <cfset local.objectValueDisplay = createObject("component","CFC.pages")>
     <cfset variables.displayData=#local.objectValueDisplay.valueDisplay(url.idPage)# >
     <cfset variables.pname = "#variables.displayData.pname#">
     <cfset variables.pdesc = "#variables.displayData.pdesc#">
@@ -25,18 +23,14 @@
 <cfif structKeyExists(form, "submit")>
     <cfif structKeyExists(form,"pageId") and isNumeric(form.pageId)>
         <cfif structKeyExists(form,"title") or structKeyExists(form,"desc")>
+            <cfif len(trim(form.title))eq 0 and len(trim(form.desc))eq 0>
+                <cfset variables.errorMsg &="Please enter values in all fields"&"<br>">
+                <cfreturn>
+            </cfif>
             <cfif len(trim(form.title))eq 0>
                 <cfset variables.errorMsg &="Title is required"&"<br>"> 
-            <cfelse> 
-                <cfloop index="i" from="1" to="#len(form.title)#">
-                    <cfset currentCharacter = mid(form.title, i, 1)>
-                    <cfif listFindNoCase(variables.list, currentCharacter)>
-                    <!---cfif !((asc(currentCharacter) Gt 64 && asc(currentCharacter) Lt 91)||(asc(currentCharacter) Gt 96 && asc(currentCharacter) Lt 123)||(asc(currentCharacter)EQ 32))--->
-                        <cfset variables.errorMsg &= "Title must contain String values only" & "<br>">
-                        <cfbreak>
-                        
-                    </cfif>
-                </cfloop>                        
+            <cfelseif reFind("\d", form.title)>
+                <cfset variables.errorMsg &= "Title must contain String values only" & "<br>">                
             </cfif>
             <cfif len(trim(form.desc))eq 0>
                 <cfset variables.errorMsg &="Description is required"&"<br>">
@@ -46,7 +40,7 @@
             </cfif>
         </cfif>
         <cfif len(trim(variables.errorMsg)) EQ 0>        
-            <cfset variables.objectEditData = createObject("component", "../models/pages")>
+            <cfset variables.objectEditData = createObject("component", "CFC.pages")>
             <cfset variables.success = #variables.objectEditData.savePage(form.pageId,form.title,form.desc)#>
         </cfif>
     </cfif>

@@ -1,7 +1,4 @@
-<!---header--->
 <cfinclude template="./header.cfm">
-    </head>
-    <body>
 <cfoutput>
         <div class="d-flex align-items-center justify-content-center col-12 ">
             <nav class="navbar container-fluid navbar-expand-lg flex-nowrap navbar-dark bg-primary px-3 px-sm-5 col-12">
@@ -50,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <ul class="nav justify-content-center border-bottom pt-5 mt-5 pb-3 mb-3">
+        <ul class="nav justify-content-center border-bottom col-12 pt-5 mt-5 pb-3 ">
             <li class="nav-item"><a href="./welcomePage.cfm" title="Go to Welcome Page" class="nav-link px-2 text-body-secondary">Home</a></li>
             <li class="nav-item"><a href="./login.cfm" title="Log In Here" class="nav-link px-2 text-body-secondary">Log In</a></li>
         </ul>
