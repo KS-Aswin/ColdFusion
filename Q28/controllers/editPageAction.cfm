@@ -39,9 +39,9 @@
                 <cfset variables.errorMsg &="Description must contain String"&"<br>">
             </cfif>
         </cfif>
-        <cfif len(trim(variables.errorMsg)) EQ 0>        
+        <!---cfif len(trim(variables.errorMsg)) EQ 0>        
             <cfset variables.objectEditData = createObject("component", "CFC.pages")>
             <cfset variables.success = #variables.objectEditData.savePage(form.pageId,form.title,form.desc)#>
-        </cfif>
+        </cfif--->
     </cfif>
 </cfif>

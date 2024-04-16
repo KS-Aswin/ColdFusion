@@ -8,6 +8,9 @@ body {
     align-items: center;
     justify-content: center; 
 }
+a{
+    text-decoration: none;
+}
 h2{
     font-family: Arial, sans-serif;
     margin: 0;
@@ -32,7 +35,6 @@ h2{
 
 .loginSubmit {
     width: 83%;
-    margin-bottom: 10px;
     padding: 10px;
     background-color: #007cff;
     color: white;
@@ -41,26 +43,23 @@ h2{
     cursor: pointer;
 }
 
+.deleteLink{
+    border: none;
+    background:transparent;
+    color: #007cff;
+}
+
 .loginSubmit:hover {
     filter: brightness(80%);
 }
 
 .loginCancel{
-    width: 83%;
-    padding: 10px;
+    margin-bottom: 10px;
     background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 .loginCancel a{
     color:#ffffff;
     text-decoration: none;
-}
-
-#loginMsg{
-    height: 30px;
 }
 
 .nav-link{
@@ -82,8 +81,8 @@ a{
     height: 200px !important;
 }
 .loginImg{
-    width: 240px !important;
-    height: 240px !important;
+    width: 200px !important;
+    height: 200px !important;
 }
 .saveFile2{
     width: 500px !important;
@@ -128,6 +127,19 @@ a{
 .imp{
     color:red;
 }
+
+#loginSuccess{
+    color: green;
+    font-size: 14px;
+    height: 10px;
+}
+
+#loginFailed{
+    color: red;
+    font-size: 14px;
+    height: 10px;
+}
+
 .editButton {
     display: flex;
     align-items: center;
