@@ -7,7 +7,7 @@
             <div class="col-8">  
                 <h2 class="mb-4 mt-5"><b>#variables.headings#</b></h2>  
                 <h5 class="errorMsg"><b>#variables.errorMsg#</b></h5>
-                <h2 class="successMsg mb-3"><b>#variables.success#</b></h2>
+                <h5 class="successMsg mb-3"><b>#variables.success#</b></h5>
                 <form action="" id="target" method="post">   
                     <div class="d-flex align-items-center mb-2">
                         <label class="w-100 text-start" for="title">Page Title<span class="imp">*</span></label>

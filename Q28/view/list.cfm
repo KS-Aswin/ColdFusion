@@ -20,7 +20,10 @@
                     <tr>
                         <th scope="col">#local.displayData.pname#</th>
                         <th scope="col">#local.displayData.pdesc#</th>
-                        <th scope="col"><a href="./editPage.cfm?idPage=#pid#"><span class="material-symbols-outlined pe-2">edit_note</span></a><a href="../models/pages.cfc?method=deletePage&idPage=#pid#"><span class="material-symbols-outlined">delete</span></a></th>
+                        <th scope="col"><a href="./editPage.cfm?idPage=#pid#"><span class="material-symbols-outlined pe-3">edit_note</span></a>
+                        
+                        <button class="deleteLink " value="#local.displayData.pid#" type="submit"><span class="material-symbols-outlined">delete</span></button>
+                        <!---a class="deleteLink" href="" data-id="#local.displayData.pid#"><span class="material-symbols-outlined">delete</span></a---></th>
                     </tr>
                     </cfloop>
                 </tbody>

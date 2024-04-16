@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$("form").submit(function () {
+	$("#submitBtn").click(function () {
 		var title = $("#title").val().trim();
 		var desc = $("#desc").val().trim();
 		var errorMsg="";
