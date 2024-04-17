@@ -1,14 +1,16 @@
 $(document).ready(function() {
 
     $('.deleteLink').click(function() {
-        var idPage =$(this).attr("value");
+        var idPage =$(this).attr("data-id");        
+        var _this= $(this);
         $.ajax({
             url: '../models/pages.cfc?method=deletePage',
             type: 'post',
             data:  {idPage: idPage},
             dataType:"json",
             success: function(response) {
-                
+                $(_this).parents("tr").remove();
+                //$("#"+idPage).remove(); 
             },
             error: function(xhr, status, error) {
                 alert("An error occurred: " + error);
@@ -30,19 +32,13 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.message === "edited"){
                     $(".successMsg").text('Edited Successfully');
-                    setTimeout(function() {
-                        window.location.href="../view/list.cfm";
-                    }, 1000);  
+                    timeOut();  
                 } else if (response.message === "exist"){
                     $(".successMsg").text('The title is already existing!');
-                    setTimeout(function() {
-                        window.location.href="../view/list.cfm";
-                    }, 1000);
+                    timeOut();
                 }else if (response.message === "added"){
                     $(".successMsg").text('Added Successfully');
-                    setTimeout(function() {
-                        window.location.href="../view/list.cfm";
-                    }, 1000);
+                    timeOut();
                 }
             },
             error: function(xhr, status, error) {
@@ -51,4 +47,11 @@ $(document).ready(function() {
         });       
         return false;
     });
+    
+    function  timeOut() {
+        setTimeout(function() {
+            window.location.href="../view/list.cfm";
+        }, 1000);
+    }
+    
 });

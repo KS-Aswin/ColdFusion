@@ -9,7 +9,8 @@
             <h2 class="py-3 px-5"><b>Log In</b></h2>
             <h5 id="loginSuccess"><b></b></h5>
             <img class="card-img-top loginImg" src="../assets/images/login.png" alt="Card image cap">
-            <h5 id="loginFailed"><b></b></h5>
+            <h5 id="loginFailed"><b></b></h5>            
+            <h5 id="loginMsg"><b></b></h5>
             <input class="loginInput mx-2 col-10 p-2" type="text" name="user" id="user" placeholder="Enter Username">
             <input class="loginInput mx-2 col-10 p-2" type="password" name="pass" id="pass" placeholder="Enter Password">
             <input class="loginSubmit" type="submit" name="submit" id="logInBtn"><br>

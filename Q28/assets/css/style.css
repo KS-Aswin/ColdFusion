@@ -117,13 +117,9 @@ a{
     text-decoration: underline;
 }
 
-.list{
-    height: 58.5vh;
-}
 
-.editPage{
-    height: 66vh;
-}
+
+
 .imp{
     color:red;
 }
@@ -131,13 +127,13 @@ a{
 #loginSuccess{
     color: green;
     font-size: 14px;
-    height: 10px;
+    
 }
 
-#loginFailed{
+#loginFailed, #loginMsg{
     color: red;
     font-size: 14px;
-    height: 10px;
+    
 }
 
 .editButton {
