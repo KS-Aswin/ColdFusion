@@ -29,8 +29,8 @@
             <cfif session.role EQ "admin" || session.role EQ "editor" || session.role EQ "user">
                 <cfreturn {"message":"exists"}>
             </cfif>
-            <cfelse>
-                <cfreturn {"message":"invalid"}>
+        <cfelse>
+            <cfreturn {"message":"invalid"}>
         </cfif>
     </cffunction>
 

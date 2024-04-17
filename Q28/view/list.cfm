@@ -8,6 +8,9 @@
     <div class="list d-flex flex-column align-items-center justify-content-between mt-5 col-12">
         <div class="col-8">
             <table class="table table-hover">
+                <div class="d-flex align-items-center justify-content-end ">
+                    <button class="addButton" type="submit"><a href="./editPage.cfm" title="Add file">Add New Data</a></button>
+                </div>
                 <thead>
                     <tr>
                         <th scope="col"><h5><b>Title</b></h5></th>
@@ -17,12 +20,12 @@
                 </thead>
                 <tbody>
                     <cfloop query="local.displayData">
-                    <tr>
-                        <th scope="col">#local.displayData.pname#</th>
-                        <th scope="col">#local.displayData.pdesc#</th>
+                    <tr class="tableRow" id="#local.displayData.pid#">
+                        <th scope="col"># local.displayData.pname#</th>
+                        <th scope="col"># local.displayData.pdesc#</th>
                         <th scope="col"><a href="./editPage.cfm?idPage=#pid#"><span class="material-symbols-outlined pe-3">edit_note</span></a>
                         
-                        <button class="deleteLink " value="#local.displayData.pid#" type="submit"><span class="material-symbols-outlined">delete</span></button>
+                        <button class="deleteLink " data-id="#local.displayData.pid#" type="submit"><span class="material-symbols-outlined">delete</span></button>
                         <!---a class="deleteLink" href="" data-id="#local.displayData.pid#"><span class="material-symbols-outlined">delete</span></a---></th>
                     </tr>
                     </cfloop>
@@ -31,6 +34,7 @@
             <div class="d-flex align-items-center justify-content-end ">
                 <button class="addButton" type="submit"><a href="./editPage.cfm" title="Add file">Add New Data</a></button>
             </div>
+            
         </div>
     </div>
 <cfelse>

@@ -2,8 +2,11 @@ $(document).ready(function() {
     $('#logInBtn').click(function() {
         var user = $('#user').val().trim(); 
         var pass = $('#pass').val().trim();
-        if (user.trim() === ''|| pass.trim() ==='' ){
-            $("#loginMsg").html('Please fill values in all fields!');  
+        if (user === ''|| pass ==='' ){
+            $("#loginMsg").html('Please fill values in all fields!'); 
+            setTimeout(function() {
+                window.location.href="../view/login.cfm";
+            }, 1500);
         }else{
             $.ajax({
                 url: '../models/pages.cfc?method=doSignin',
