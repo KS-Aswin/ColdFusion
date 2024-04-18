@@ -8,9 +8,6 @@
     <div class="list d-flex flex-column align-items-center justify-content-between mt-5 col-12">
         <div class="col-8">
             <table class="table table-hover">
-                <div class="d-flex align-items-center justify-content-end ">
-                    <button class="addButton" type="submit"><a href="./editPage.cfm" title="Add file">Add New Data</a></button>
-                </div>
                 <thead>
                     <tr>
                         <th scope="col"><h5><b>Title</b></h5></th>

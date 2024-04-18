@@ -1,11 +1,11 @@
-<cfinclude template="../controllers/editPageAction.cfm">
+<cfinclude template="../controllers/pages.cfc">
 <cfoutput>
 <cfinclude template="./header.cfm"> 
     <cfinclude template="./navbar.cfm">
     <div class=" col-8">
         <div class="editPage d-flex flex-column align-items-center justify-content-between col-12">
             <div class="col-8">  
-                <h2 class="mb-4 mt-5"><b>#variables.headings#</b></h2>  
+                <h2 class="editHeading mb-4 mt-5"><b>#variables.headings#</b></h2>  
                 <h5 class="errorMsg"><b>#variables.errorMsg#</b></h5>
                 <h5 class="successMsg mb-3"><b>#variables.success#</b></h5>
                 <form action="" id="target" method="post">   

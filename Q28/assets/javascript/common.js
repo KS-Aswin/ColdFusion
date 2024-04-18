@@ -10,7 +10,7 @@ $(document).ready(function () {
             }, 1500);
         }else{
             $.ajax({
-                url: '../models/pages.cfc?method=doSignin',
+                url: '../controllers/pages.cfc?method=doSignin',
                 type: 'post',
                 data:  {user: user , pass:pass},
                 dataType:"json",
@@ -39,19 +39,16 @@ $(document).ready(function () {
         var idPage = $('#pageId').val().trim();
 		if(validation()){
 			$.ajax({
-				url: '../models/pages.cfc?method=savePage',
+				url: '../controllers/pages.cfc?method=savePages',
 				type: 'post',
 				data:  {idPage: idPage , title: title , desc: desc},
 				dataType:"json",
 				success: function(response) {
-					if (response.message === "edited"){
-						$(".successMsg").text('Edited Successfully');
+					if(response.success){ 
+                        $(".successMsg").text(response.message );
 						timeOut();  
-					} else if (response.message === "exist"){
-						$(".successMsg").text('The title is already existing!');
-						timeOut();
-					}else if (response.message === "added"){
-						$(".successMsg").text('Added Successfully');
+					} else {
+                        $(".errorMsg").html(response.message );    
 						timeOut();
 					}
 				},
@@ -63,9 +60,35 @@ $(document).ready(function () {
 		return false;
     });
 
+    function validation() {
+		var title = $("#title").val().trim();
+		var desc = $("#desc").val().trim();
+		var errorMsg="";
+    	if (/\d/.test(title)) {
+			errorMsg +="Title must contain String values only!"+"<br>";    
+		}
+		if (title == "" && desc == "" ) {
+			errorMsg +="Please enter values in all fields!"+"<br>"; 
+    	} else if (title == "" ){
+			errorMsg +="Please enter Title!"+"<br>"; 
+		}else if (desc == "" ){
+			errorMsg +="Please enter Description!"+"<br>"; 
+		}else if (!isNaN(desc)) {
+			errorMsg +="Enter an Description containing Letters!"+"<br>"; 
+		}
+		if(errorMsg.length) {
+			$(".errorMsg").html(errorMsg);
+			return false;
+		}
+		return true;
+	}	 
+
 	$('.deleteLink').click(function() {
-        var idPage =$(this).attr("data-id");        
+        var idPage =$(this).attr("data-id"); 
         var _this= $(this);
+        if(!confirm("Do you want to delete this file?")){
+            return false;
+        }
         $.ajax({
             url: '../models/pages.cfc?method=deletePage',
             type: 'post',
@@ -87,27 +110,4 @@ $(document).ready(function () {
             window.location.href="../view/list.cfm";
         }, 1000);
     }
-
-	function validation() {
-		var title = $("#title").val().trim();
-		var desc = $("#desc").val().trim();
-		var errorMsg="";
-    	if (/\d/.test(title)) {
-			errorMsg +="Title must contain String values only!"+"<br>";    
-		}
-		if (title == "" && desc == "" ) {
-			errorMsg +="Please enter values in all fields!"+"<br>"; 
-    	} else if (title == "" ){
-			errorMsg +="Please enter Title!"+"<br>"; 
-		}else if (desc == "" ){
-			errorMsg +="Please enter Description!"+"<br>"; 
-		}else if (!isNaN(desc)) {
-			errorMsg +="Enter an Description containing Letters!"+"<br>"; 
-		}
-		if(errorMsg.length) {
-			$(".errorMsg").html(errorMsg);
-			return false;
-		}
-		return true;
-	}	
 });

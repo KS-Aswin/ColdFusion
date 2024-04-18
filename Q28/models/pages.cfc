@@ -61,14 +61,14 @@
                     pdesc = <cfqueryparam value="#arguments.desc#" cfsqltype="cf_sql_varchar">
                 where pid = <cfqueryparam value="#arguments.idPage#" cfsqltype="cf_sql_integer">    
             </cfquery>
-            <cfreturn {"message":"edited"}>
+            <cfreturn {"success":true, "message":"Edited Successfully!"}>
         <cfelseif arguments.idPage EQ 0>
             <cfquery name="findPage">
                 select 1 from pageTable 
                 where pname = <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">
             </cfquery>
             <cfif findPage.recordCount>
-                <cfreturn {"message":"exist"}>
+                <cfreturn {"success":false, "message":"The title is already existing!"}>
             <cfelse>
                 <cfquery name="insertData" >
                     insert into pageTable (pname, pdesc)
@@ -77,7 +77,7 @@
                         <cfqueryparam value="#arguments.desc#" cfsqltype="cf_sql_varchar">
                     )
                 </cfquery> 
-                <cfreturn {"message":"added"}> 
+                <cfreturn {"success":true, "message":"Added Successfully!"}>
             </cfif>
         </cfif>
     </cffunction>
