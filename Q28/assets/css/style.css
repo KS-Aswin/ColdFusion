@@ -81,8 +81,8 @@ a{
     height: 200px !important;
 }
 .loginImg{
-    width: 200px !important;
-    height: 200px !important;
+    width: 180px !important;
+    height: 180px !important;
 }
 .saveFile2{
     width: 500px !important;
@@ -127,12 +127,14 @@ a{
 #loginSuccess{
     color: green;
     font-size: 14px;
+    height:15px;
     
 }
 
 #loginFailed, #loginMsg{
     color: red;
     font-size: 14px;
+    height:15px;
     
 }
 
