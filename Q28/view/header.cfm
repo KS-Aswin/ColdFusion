@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <script src="../assets/javascript/jquery.min.js"></script> 
     <script src="../assets/javascript/common.js"></script> 
-
 </head>
 <body>
 </cfoutput>

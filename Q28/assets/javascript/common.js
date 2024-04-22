@@ -10,7 +10,7 @@ $(document).ready(function () {
             }, 1500);
         }else{
             $.ajax({
-                url: '../controllers/pages.cfc?method=doSignin',
+                url: '../models/pages.cfc?method=doSignin',
                 type: 'post',
                 data:  {user: user , pass:pass},
                 dataType:"json",
@@ -35,6 +35,33 @@ $(document).ready(function () {
 	$('#target').on("submit",function() {
         $(".errorMsg").html("");
         var title = $('#title').val().trim(); 
+		if(validation()){
+			$.ajax({
+				url: '../models/pages.cfc?method=pageCounts',
+				type: 'post',
+				data:  {title: title},
+				dataType:"json",
+				success: function(response) {
+					if(response.success){
+                        $(".errorMsg").html(response.message );    
+						timeOut(); 
+                          
+					} else {
+                        forSaving();
+						timeOut();
+					}
+				},
+				error: function(xhr, status, error) {
+					alert("An error occurred: " + error);
+				}
+			});
+		}       
+		return false;
+    });
+
+    function forSaving(){
+        $(".errorMsg").html("");
+        var title = $('#title').val().trim(); 
         var desc = $('#desc').val().trim();
         var idPage = $('#pageId').val().trim();
 		if(validation()){
@@ -43,8 +70,9 @@ $(document).ready(function () {
 				type: 'post',
 				data:  {idPage: idPage , title: title , desc: desc},
 				dataType:"json",
-				success: function(response) {
-					if(response.success){ 
+				success: function(response) { 
+                    $(".errorMsg").html("");
+					if(response.success){
                         $(".successMsg").text(response.message );
 						timeOut();  
 					} else {
@@ -58,7 +86,7 @@ $(document).ready(function () {
 			});
 		}       
 		return false;
-    });
+    }
 
     function validation() {
 		var title = $("#title").val().trim();

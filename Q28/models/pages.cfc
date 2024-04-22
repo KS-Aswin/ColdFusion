@@ -11,7 +11,7 @@
         <cflocation  url="../view/login.cfm">
     </cffunction>
 
-    <cffunction name="doSignin" access="remote" retrunType="json" returnformat="json">
+    <cffunction name="doSignin" access="remote"  returnformat="json">
         <cfargument name="user" required="true">
         <cfargument name="pass" required="true">
         <cfquery name="checkLogin" result="loginCheck">
@@ -50,7 +50,7 @@
         <cfreturn displayUserData>
     </cffunction>
 
-    <cffunction  name="savePage" access="remote" retrunType="json" returnformat="json">
+    <cffunction  name="savePage" access="remote"  returnformat="json">
         <cfargument name="idPage" required="true">
         <cfargument name="title" required="true">
         <cfargument name="desc" required="true">
@@ -63,22 +63,14 @@
             </cfquery>
             <cfreturn {"success":true, "message":"Edited Successfully!"}>
         <cfelseif arguments.idPage EQ 0>
-            <cfquery name="findPage">
-                select 1 from pageTable 
-                where pname = <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">
-            </cfquery>
-            <cfif findPage.recordCount>
-                <cfreturn {"success":false, "message":"The title is already existing!"}>
-            <cfelse>
-                <cfquery name="insertData" >
-                    insert into pageTable (pname, pdesc)
-                    values (
-                        <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">,
-                        <cfqueryparam value="#arguments.desc#" cfsqltype="cf_sql_varchar">
-                    )
-                </cfquery> 
-                <cfreturn {"success":true, "message":"Added Successfully!"}>
-            </cfif>
+            <cfquery name="insertData" >
+                insert into pageTable (pname, pdesc)
+                values (
+                    <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.desc#" cfsqltype="cf_sql_varchar">
+                )
+            </cfquery> 
+            <cfreturn {"success":true, "message":"Added Successfully!"}>
         </cfif>
     </cffunction>
    
@@ -91,13 +83,22 @@
         <cfreturn displayValue>
     </cffunction> 
 
-    <cffunction  name="deletePage" access="remote" retrunType="json" returnformat="json" >
+    <cffunction  name="deletePage" access="remote"  returnformat="json" >
         <cfargument  name="idPage" required="true">
         <cfquery name="deleteTheData" >
             delete from pageTable
             where pid=<cfqueryparam value="#arguments.idPage#" cfsqltype="cf_sql_varchar">
         </cfquery>
         <cfreturn {"message":"delete"}>
+    </cffunction> 
+
+    <cffunction  name="pageCounts" access="remote"  returnformat="json">
+        <cfargument name="title" required="true">
+        <cfquery name="countPage">
+            select 1 from pageTable 
+            where pname = <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">
+        </cfquery>
+        <cfreturn {"success":false, "message":"The title is already existing!"}>
     </cffunction>
  
 </cfcomponent>

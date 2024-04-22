@@ -1,4 +1,4 @@
-<cfinclude template="../controllers/pages.cfc">
+<cfinclude template="../controllers/editAction.cfm">
 <cfoutput>
 <cfinclude template="./header.cfm"> 
     <cfinclude template="./navbar.cfm">
