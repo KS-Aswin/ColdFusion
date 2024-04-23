@@ -1,5 +1,5 @@
-<cfinclude template="../controllers/editAction.cfm">
 <cfoutput>
+<cfinclude template="../controllers/editAction.cfm">
 <cfinclude template="./header.cfm"> 
     <cfinclude template="./navbar.cfm">
     <div class=" col-8">
