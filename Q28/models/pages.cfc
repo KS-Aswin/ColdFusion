@@ -98,7 +98,11 @@
             select 1 from pageTable 
             where pname = <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">
         </cfquery>
-        <cfreturn {"success":false, "message":"The title is already existing!"}>
+        <cfif countPage.recordCount>
+            <cfreturn {"success":false, "message":"The title is already existing!"}>
+        <cfelse>
+            <cfreturn {"success":true, "message":""}>
+        </cfif>        
     </cffunction>
  
 </cfcomponent>

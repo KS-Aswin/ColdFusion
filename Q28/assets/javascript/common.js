@@ -43,12 +43,10 @@ $(document).ready(function () {
 				dataType:"json",
 				success: function(response) {
 					if(response.success){
-                        $(".errorMsg").html(response.message );    
-						timeOut(); 
-                          
-					} else {
                         forSaving();
-						timeOut();
+						timeOut(); 
+					} else {
+                        $(".errorMsg").html(response.message );    
 					}
 				},
 				error: function(xhr, status, error) {
@@ -91,6 +89,7 @@ $(document).ready(function () {
     function validation() {
 		var title = $("#title").val().trim();
 		var desc = $("#desc").val().trim();
+        
 		var errorMsg="";
     	if (/\d/.test(title)) {
 			errorMsg +="Title must contain String values only!"+"<br>";    
