@@ -4,8 +4,10 @@ component {
         if (len(trim(title))eq 0 and len(trim(desc))eq 0){
             local.error &="Please enter values in all fields"&"<br>";
         }
-        if (len(trim(title))eq 0){
+        if (len(trim(title))eq 0 ){
             local.error &="Title is required"&"<br>";
+        }else if (len(trim(title))gt 40 ){
+            local.error &= "Title must be less than 40" & "<br>";
         }else if (reFind("\d", title)){
             local.error &= "Title must contain String values only" & "<br>";
         }
@@ -19,6 +21,8 @@ component {
             local.object=createObject("component","CFC.pages");
             local.save=local.object.savePage(idPage,title,desc);
             return local.save;  
+        }else{
+            return {"success":false, "message":"#local.error#"};
         }
     } 
 }

@@ -11,8 +11,8 @@
             <img class="card-img-top loginImg" src="../assets/images/login.png" alt="Card image cap">
             <h5 id="loginFailed"><b></b></h5>            
             <h5 id="loginMsg"><b></b></h5>
-            <input class="loginInput mx-2 col-10 p-2" type="text" name="user" id="user" placeholder="Enter Username">
-            <input class="loginInput mx-2 col-10 p-2" type="password" name="pass" id="pass" placeholder="Enter Password">
+            <input class="loginInput mx-2 col-10 p-2" type="text" name="strUsername" id="strUsername" placeholder="Enter Username">
+            <input class="loginInput mx-2 col-10 p-2" type="password" name="strPassword" id="strPassword" placeholder="Enter Password">
             <input class="loginSubmit" type="submit" name="submit" id="logInBtn"><br>
             <button class="loginCancel loginSubmit mb-4"><a title="Clear All" href="./login.cfm">Cancel</a></button>
         </form>
