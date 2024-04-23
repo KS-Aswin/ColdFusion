@@ -14,9 +14,9 @@
 </cfif>
 
 <cfif structKeyExists(variables,"idPage") AND variables.idPage GT 0>
-    <cfset variables.headings = "Save Page">
+    <cfset variables.headings = "Save the Page">
     <cfset variables.btnValue = "Save">
 <cfelse>    
-    <cfset variables.headings = "Add Page">
+    <cfset variables.headings = "Add new Page">
     <cfset variables.btnValue = "Add">
 </cfif>

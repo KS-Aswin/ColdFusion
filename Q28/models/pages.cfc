@@ -1,11 +1,11 @@
 <cfcomponent>
-    <cffunction name="signin" access="public">
+    <cffunction name="signin" access="public" returnType="void">
         <cfif session.login>
             <cflocation url="../view/homePage.cfm">
         </cfif>
     </cffunction>
 
-    <cffunction name="logout" access="remote" >
+    <cffunction name="logout" access="remote" returnType="void">
         <cfset StructClear(Session)>
         <cfset session.login=false>
         <cflocation  url="../view/login.cfm">
@@ -34,14 +34,14 @@
         </cfif>
     </cffunction>
 
-    <cffunction  name="displayPage" access="public" >
+    <cffunction name="displayPage" access="public" returnType="query">
         <cfquery name="displayData" >
             select *  from pageTable
         </cfquery>
         <cfreturn displayData>
     </cffunction>
 
-    <cffunction  name="displayUser" access="public" >
+    <cffunction name="displayUser" access="public" returnType="query">
         <cfargument  name="pid" required="true">
         <cfquery name="displayUserData" >
             select * from pageTable
@@ -74,7 +74,7 @@
         </cfif>
     </cffunction>
    
-    <cffunction  name="valueDisplay" access="public" > 
+    <cffunction  name="valueDisplay" access="public" returnType="query"> 
         <cfargument  name="idPage" required="true">   
         <cfquery name="displayValue" >
             select pname,pdesc from pageTable
@@ -93,16 +93,19 @@
     </cffunction> 
 
     <cffunction  name="pageCounts" access="remote"  returnformat="json">
+        <cfargument name="idPage" required="true">
         <cfargument name="title" required="true">
-        <cfquery name="countPage">
-            select 1 from pageTable 
+        <cfquery name="tableName">
+            select pname
+            from pageTable
             where pname = <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">
+            and pid != <cfqueryparam value="#arguments.idPage#" cfsqltype="cf_sql_integer">
         </cfquery>
-        <cfif countPage.recordCount>
-            <cfreturn {"success":false, "message":"The title is already existing!"}>
-        <cfelse>
-            <cfreturn {"success":true, "message":""}>
-        </cfif>        
+            <cfif tableName.recordCount>
+                <cfreturn {"success":false, "message":"The title is already existing!"}>
+            <cfelse>
+                <cfreturn {"success":true, "message":""}>
+            </cfif>
     </cffunction>
  
 </cfcomponent>
