@@ -74,7 +74,7 @@
         </cfif>
     </cffunction>
    
-    <cffunction  name="valueDisplay" access="public" returnType="query"> 
+    <cffunction  name="valuesPage" access="public" returnType="query"> 
         <cfargument  name="idPage" required="true">   
         <cfquery name="displayValue" >
             select pname,pdesc from pageTable
@@ -106,6 +106,24 @@
             <cfelse>
                 <cfreturn {"success":true, "message":""}>
             </cfif>
+    </cffunction>
+
+    <cffunction  name="hash">
+        <cfargument name="pass" required="true">
+        <cfscript>
+            hash(pass, "SHA-256", "UTF-8");
+        </cfscript>
+        
+        <!---<cfquery name="getUsers">
+            SELECT * FROM userAdmin
+        </cfquery>
+        <cfloop query="getUsers">
+            <cfquery name="setPasswordHash">
+                UPDATE userAdmin
+                SET passwordHash = <cfqueryparam cfsqltype="char" value="#hash(Password,'SHA')#">
+                WHERE userID = <cfqueryparam cfsqltype="cf_sql_integer" value="#userID#">
+            </cfquery>
+        </cfloop>--->
     </cffunction>
  
 </cfcomponent>

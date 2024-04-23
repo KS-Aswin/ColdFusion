@@ -1,30 +1,34 @@
 $(document).ready(function () {
 
-	$('#logInBtn').click(function() {
-        var user = $('#user').val().trim(); 
-        var pass = $('#pass').val().trim();
-        if (user === ''|| pass ==='' ){
-            $("#loginMsg").html('Please fill values in all fields!'); 
-            setTimeout(function() {
-                window.location.href="../view/login.cfm";
-            }, 1500);
-        }else{
+	$('#logInBtn').click(function () {
+        var user = $('#strUsername').val().trim();
+        var pass = $('#strPassword').val().trim();
+        $("#loginMsg").html('');
+        if (user === '' || pass === '') {
+            $("#loginMsg").html('');
+            $("#loginMsg").html('Please fill values in all fields!');
+        } else {
+            $("#loginMsg").html('');
             $.ajax({
                 url: '../models/pages.cfc?method=doSignin',
                 type: 'post',
-                data:  {user: user , pass:pass},
-                dataType:"json",
-                success: function(response) {
-                    if (response.message === "exists"){ 
+                data: {
+                    user: user,
+                    pass: pass
+                },
+                dataType: "json",
+                success: function (response) {
+                    if (response.message === "exists") {
                         $("#loginSuccess").text('Login Success');
-                        setTimeout(function() {
-                            window.location.href="../view/homePage.cfm";
+                        setTimeout(function () {
+                            window.location.href = "../view/homePage.cfm";
                         }, 1000);
                     } else {
+                        $("#loginMsg").html('');
                         $("#loginFailed").text('Invalid username or password');
                     }
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     alert("An error occurred: " + error);
                 }
             });
@@ -33,9 +37,9 @@ $(document).ready(function () {
     });
 
 	$('#target').on("submit",function() {
-        $(".errorMsg").html("");
         var idPage = $('#pageId').val().trim();
         var title = $('#title').val().trim(); 
+        $(".errorMsg").html("");
 		if(validation()){
 			$.ajax({
 				url: '../models/pages.cfc?method=pageCounts',
@@ -44,11 +48,10 @@ $(document).ready(function () {
 				dataType:"json",
 				success: function(response) {
 					if(response.success){
-                        forSaving();
-						timeOut(); 
-                          
+                        doSave();
+						redirectToPages(); 
 					} else {
-                        $(".errorMsg").html(response.message );    
+                        $(".errorMsg").html(response.message ); 
 					}
 				},
 				error: function(xhr, status, error) {
@@ -82,33 +85,29 @@ $(document).ready(function () {
     });
 });
 
-function forSaving(){
-    $(".errorMsg").html("");
+function doSave(){
     var title = $('#title').val().trim(); 
     var desc = $('#desc').val().trim();
     var idPage = $('#pageId').val().trim();
-    if(validation()){
-        $.ajax({
-            url: '../controllers/pages.cfc?method=savePages',
-            type: 'post',
-            data:  {idPage: idPage , title: title , desc: desc},
-            dataType:"json",
-            success: function(response) { 
-                $(".errorMsg").html("");
-                if(response.success){
-                    $(".successMsg").text(response.message );
-                    timeOut();  
-                } else {
-                    $(".errorMsg").html(response.message );    
-                    timeOut();
-                }
-            },
-            error: function(xhr, status, error) {
-                alert("An error occurred: " + error);
+    $(".errorMsg").html("");
+    $.ajax({
+        url: '../controllers/pages.cfc?method=savePages',
+        type: 'post',
+        data:  {idPage: idPage , title: title , desc: desc},
+        dataType:"json",
+        success: function(response) { 
+            $(".errorMsg").html("");
+            if(response.success){
+                $(".successMsg").text(response.message );
+                redirectToPages();  
+            } else {
+                $(".errorMsg").html(response.message );    
             }
-        });
-    }       
-    return false;
+        },
+        error: function(xhr, status, error) {
+            alert("An error occurred: " + error);
+        }
+    });
 }
 
 function validation() {
@@ -134,7 +133,7 @@ function validation() {
     return true;
 }
 
-function  timeOut() {
+function  redirectToPages() {
     setTimeout(function() {
         window.location.href="../view/list.cfm";
     }, 1000);
