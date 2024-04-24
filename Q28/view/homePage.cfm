@@ -2,7 +2,6 @@
 <cfoutput>
     <cfinclude template="./navbar.cfm">
     <cfif session.role eq "admin" || session.role eq "editor">
-        <cfset session.login = true>
         <div class="mainbodyAdmin d-flex align-items-center justify-content-center px-5">
             <div class="card container-fluid col-4 align-items-center mt-5 mb-1 mx-1 p-2">
                 <h3>Admins can add new Files</h3>
@@ -27,7 +26,6 @@
             </div>
         </div>
     <cfelse>
-        <cfset session.login = true>
         <div class="d-flex align-items-center justify-content-center px-5">
             <div class="card container-fluid col-10 align-items-center mt-5 mb-1 mx-1 p-2">
                 <h3>As a User</h3>

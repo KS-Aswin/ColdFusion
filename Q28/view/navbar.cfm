@@ -6,7 +6,7 @@
                 <a class="nav-link" title="Go to Home" href="./homePage.cfm">Home</a>
                 <a class="nav-link" title="View the List" href="./list.cfm">View List</a>
             </div>
-            <a class="nav-link" title="Go to Log In" href="../models/pages.cfc?method=logout">Log Out</a>
+            <a class="nav-link" title="Go to Log In" href="../controllers/pages.cfc?method=doLogOut">Log Out</a>
         </div>
     </nav>
 </div>
