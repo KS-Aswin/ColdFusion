@@ -1,4 +1,4 @@
-<cfset local.forSignin = createObject("component","CFC.pages").signin()>
+<cfset local.forSignin = createObject("component","controller.pages").checkLogin()>
 <cfinclude template="./header.cfm">
     <cfoutput>
         <form class="loginForm" action="login.cfm" method="post" >

@@ -1,10 +1,10 @@
 <cfinclude template="./header.cfm">
 <cfoutput>
-<cfinclude template="./navbar.cfm">
+<cfinclude template="./navbar.cfm"><cfset session.login = true>
+<cfset local.obj = createObject("component", "CFC.pages")>
+<cfset local.displayData=#local.obj.getPagesDetails()#>
+
 <cfif session.role eq "admin" || session.role eq "editor">
-    <cfset session.login = true>
-    <cfset local.obj = createObject("component", "CFC.pages")>
-    <cfset local.displayData=#local.obj.displayPage()#>
     <div class="list d-flex flex-column align-items-center justify-content-between mt-5 col-12">
         <div class="col-8">
             <table class="table table-hover">
@@ -18,9 +18,9 @@
                 <tbody>
                     <cfloop query="local.displayData">
                     <tr class="tableRow" id="#local.displayData.pid#">
-                        <th scope="col"># local.displayData.pname#</th>
-                        <th scope="col"># local.displayData.pdesc#</th>
-                        <th scope="col"><a href="./editPage.cfm?idPage=#pid#"><span class="material-symbols-outlined pe-3">edit_note</span></a>
+                        <th scope="col">#local.displayData.pname#</th>
+                        <th scope="col">#local.displayData.pdesc#</th>
+                        <th scope="col"><a href="./editPage.cfm?pageId=#pid#"><span class="material-symbols-outlined pe-3">edit_note</span></a>
                         <button class="deleteLink " data-id="#local.displayData.pid#" type="submit"><span class="material-symbols-outlined">delete</span></button>
                     </tr>
                     </cfloop>
@@ -32,9 +32,6 @@
         </div>
     </div>
 <cfelse>
-    <cfset session.login = true>
-    <cfset local.obj = createObject("component", "CFC./pages")>
-    <cfset local.displayData=#local.obj.displayPage()#>
     <div class="list d-flex flex-column align-items-center justify-content-between mt-5 col-12">
         <div class="col-4">
             <table class="table table-hover">
@@ -46,7 +43,7 @@
                 <tbody>
                     <cfloop query="local.displayData">
                         <tr>                
-                            <th><a title="View details" href="./userDataPage.cfm?idPage=#pid#">#local.displayData.pname#</a></th>
+                            <th><a title="View details" href="./userDataPage.cfm?pageId=#pid#">#local.displayData.pname#</a></th>
                         </tr> 
                     </cfloop>
                 </tbody>
