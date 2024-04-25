@@ -8,7 +8,7 @@
                     <a class="nav-link" title="View the List" href="./list.cfm">View List</a>
                 </div>
                 <div class="d-flex  gap-2">
-                    <a class="nav-link welcomeUser me-2" href="">Hi #session.strfullName#</a>           
+                    <a class="nav-link welcomeUser me-2" href="">Hello #session.strfullName#</a>           
                     <a class="nav-link" title="Go to Log In" href="../controllers/pages.cfc?method=doLogOut">Log Out</a>
                 </div>
             </div>
