@@ -1,23 +1,15 @@
 <cfcomponent>
 
-    <cffunction name="doSignin" access="remote"  returnformat="json">
+    <cffunction name="doSignin" access="remote"  returnType="query">
         <cfargument name="user" required="true">
         <cfargument name="pass" required="true">
         <cfset variables.hashPassword=Hash(arguments.pass,"MD5")>
         <cfquery name="checkLogin" result="loginCheck">
-            select uid,uname,pass,role from userAdmin
+            select uid,uname,pass,role,fullName from userAdmin
             where uname=<cfqueryparam value="#arguments.user#" cfsqltype="cf_sql_varchar">
             AND pass=<cfqueryparam value="#variables.hashPassword#" cfsqltype="cf_sql_varchar"> 
         </cfquery>
-        <cfif checkLogin.recordCount>
-            <cfset session.role=checkLogin.role>
-            <cfif session.role EQ "admin" || session.role EQ "editor" || session.role EQ "user">
-                <cfset session.login = true>
-                <cfreturn {"message":"exists"}>
-            </cfif>
-        <cfelse>
-            <cfreturn {"message":"invalid"}>
-        </cfif>
+        <cfreturn checkLogin>
     </cffunction>
 
     <cffunction name="getPagesDetails" access="remote" returntype="query">

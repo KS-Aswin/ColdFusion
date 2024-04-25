@@ -40,6 +40,13 @@ component {
     remote any function doLogin(user,pass) returnFormat="JSON"{
         local.password=Hash(arguments.pass,"MD5");
         local.doLogin=createObject("component","CFC.pages").doSignin(user,pass);
-        return local.doLogin;
+        if (local.doLogin.recordCount eq 1) {
+            session.role = local.doLogin.role;
+            session.strfullName=local.doLogin.fullName;
+            session.login = true;
+            return { "message": "exists" };
+        } else {
+            return { "message": "invalid" };
+        }
     }
 }

@@ -7,14 +7,15 @@
                 <a class="nav-link" title="Go to Home" href="./welcomePage.cfm">Home</a>
             </nav>
             <h2 class="py-3 px-5"><b>Log In</b></h2>
-            <h5 id="loginSuccess"><b></b></h5>
             <img class="card-img-top loginImg" src="../assets/images/login.png" alt="Card image cap">
             <h5 id="loginFailed"><b></b></h5>            
-            <h5 id="loginMsg"><b></b></h5>
             <input class="loginInput mx-2 col-10 p-2" type="text" name="strUsername" id="strUsername" placeholder="Enter Username">
             <input class="loginInput mx-2 col-10 p-2" type="password" name="strPassword" id="strPassword" placeholder="Enter Password">
             <input class="loginSubmit" type="submit" name="submit" id="logInBtn"><br>
-            <button class="loginCancel loginSubmit mb-4"><a title="Clear All" href="./login.cfm">Cancel</a></button>
+            <div class="d-flex col-12 flex-column justify-content-start align-items-center mb-4">
+                <button class="loginCancel loginSubmit "><a title="Clear All" href="./login.cfm">Cancel</a></button>
+                <p class="text-center text-muted mb-0">Don't have an account? <a href="../../UserSignUp/?action=main.cfm" class="fw-bold text-body"><u>Create Account</u></a></p>
+            </div>
         </form>
     </cfoutput>
 </body>

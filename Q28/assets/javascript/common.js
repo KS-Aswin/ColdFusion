@@ -3,12 +3,9 @@ $(document).ready(function () {
     $('#logInBtn').click(function () {
         var user = $('#strUsername').val().trim();
         var pass = $('#strPassword').val().trim();
-        $("#loginMsg").html('');
         if (user === '' || pass === '') {
-            $("#loginMsg").html('');
-            $("#loginMsg").html('Please fill values in all fields!');
+            $("#loginFailed").html('Please fill values in all fields!').css('color','red');
         } else {
-            $("#loginMsg").html('');
             $.ajax({
                 url: '../controllers/pages.cfc?method=doLogin',
                 type: 'post',
@@ -19,13 +16,12 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     if (response.message === "exists") {
-                        $("#loginSuccess").text('Login Success');
+                        $("#loginFailed").text('Login Success').css('color','green');
                         setTimeout(function () {
                             window.location.href = "../view/homePage.cfm";
                         }, 1000);
                     } else {
-                        $("#loginMsg").html('');
-                        $("#loginFailed").text('Invalid username or password');
+                        $("#loginFailed").text('Invalid username or password').css('color','red');
                     }
                 },
                 error: function (xhr, status, error) {
