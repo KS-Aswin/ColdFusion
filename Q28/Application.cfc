@@ -10,6 +10,8 @@
     <cffunction name="onSessionStart" returnType="boolean" output="false">
         <cfset session.login=false>
         <cfset session.role = "">
+        <cfset session.strfullName="">
         <cfreturn true>
-    </cffunction>    
+    </cffunction>  
+    
 </cfcomponent>

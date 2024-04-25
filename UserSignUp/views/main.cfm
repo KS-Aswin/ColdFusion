@@ -17,22 +17,25 @@
             <a class="navbar-brand" href=""><h3><b>Info-Hub</b></h3></a>
         </nav>
         <h2 class="py-3 px-5"><b>Sign Up</b></h2>
-        <h5 id="signUpSuccess"><b></b></h5>
-        <h5 id="signUpFailed"><b></b></h5>            
-        <h5 id="signUpMsg"><b></b></h5>
-        <input class="signUpInput mx-2 col-10 p-2" type="text" name="strFullname" id="strFullname" placeholder="Enter Full Name">
+        <p id="signUpMsg"></p>     
+        <input class="signUpInput mx-2 col-10 p-2 mt-1" type="text" name="strFullname" id="strFullname" placeholder="Enter Full Name">
         <div class="dropdown ms-4 d-flex justify-content-start  pb-2 px-4">
             <select id="strRole" class="form-select form-select-sm" aria-label="Small select example">
-                <option selected>Select Role</option>
-                <option value="1">User</option>
-                <option value="2">Admin</option>
-                <option value="3">Editor</option>
+                <option selected value="select">Select Role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="editor">Editor</option>
             </select>
         </div>          
         <input class="signUpInput mx-2 col-10 p-2" type="text" name="strUsername" id="strUsername" placeholder="Enter Username">
         <input class="signUpInput mx-2 col-10 p-2" type="password" name="strPassword" id="strPassword" placeholder="Enter Password">
+        <input class="signUpInput mx-2 col-10 p-2" type="password" name="strConfirmPassword" id="strConfirmPassword" placeholder="Confirm Password">
         <input class="signUpSubmit" type="submit" name="submit" id="logInBtn"><br>
-        <button class="signUpCancel signUpSubmit mb-4"><a title="Clear All" href="?action=main">Cancel</a></button>
+        <div class="d-flex col-12 flex-column justify-content-start align-items-center mb-4">
+            <button class="signUpCancel signUpSubmit " type="reset"><a title="Clear All" href="?action=main">Cancel</a></button>
+            <p class="text-center text-muted mb-0">Have already an account? <a href="../Q28/view/login.cfm" class="fw-bold text-body"><u>Login here</u></a></p>
+        </div>
+       
     </form>
 </body>
 </html>
