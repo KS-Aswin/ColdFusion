@@ -75,12 +75,25 @@ h2{
     border-top-left-radius:10px;
     border-top-right-radius:10px;
 }
-
-#signUpMsg{
+.messeges{
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     height: 24px;
 }
+.warning{
+    font-size: 14px;
+    font-weight: 500;
+    height: 24px;
+    color: red;
+}
+
+.success{
+    font-size: 14px;
+    font-weight: 500;
+    height: 24px;
+    color: green;
+}
+
 .msg{
     height: 14px;
 }
