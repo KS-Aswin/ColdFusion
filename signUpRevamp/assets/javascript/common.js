@@ -8,7 +8,7 @@ $(document).ready(function () {
         $("#signUpMsg").html('');
         if (validation()) {
             $.ajax({
-                url: './models/common.cfc?method=checkUserExists',
+                url: './models/signUpAction.cfc?method=checkUserExists',
                 type: 'post',
                 data: {
                     fullName: fullName,
