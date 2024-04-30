@@ -23,7 +23,7 @@ component{
                     return {"msg":"Something went wrong!","color":"warning"};
                 }
             }else{
-                return {"msg":"Username already existing!","color":"warning"};
+                return {"msg":"Username already existing","color":"warning"};
             }
         }else{
             return {"msg":"#local.errorMsg#","color":"warning"}
