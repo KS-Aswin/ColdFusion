@@ -1,8 +1,9 @@
-<cfset variables.resultMsg={}>
-<cfset variables.resultMsg.msg=''>
-<cfset variables.resultMsg.color=''>
-
-<cfif structKeyExists(form, "submit")>
-    <cfset variables.objSignUp = createObject("component","controllers.signUp").saveSignUp(form.strFullname,form.strRole,form.strUsername,form.strPassword,form.strConfirmPassword)>
-    <cfset variables.resultMsg=variables.objSignUp>
-</cfif>
+<cfscript>
+    variables.resultMsg = {};
+    variables.resultMsg.msg = '';
+    variables.resultMsg.color = '';
+    if (structKeyExists(form, "submit")){
+        variables.objSignUp = createObject("component","controllers.signUp").saveSignUp(strFullname = form.strFullname,strRole = form.strRole,strUsername = form.strUsername,strPassword = form.strPassword,strConfirmPassword = form.strConfirmPassword);
+        variables.resultMsg = variables.objSignUp;
+    }
+</cfscript>
