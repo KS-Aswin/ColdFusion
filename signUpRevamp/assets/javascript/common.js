@@ -1,3 +1,4 @@
+// For client Side Validation
 $(document).ready(function () {
     $('#formTarget').on("submit",function () {
         var fullName = $('#strFullname').val().trim();
@@ -32,7 +33,6 @@ $(document).ready(function () {
         return false;
     });
 });
-
 function validation() {
     var fullName = $('#strFullname').val().trim();
     var role = $('#strRole').val().trim();
@@ -40,7 +40,6 @@ function validation() {
     var password = $('#strPassword').val().trim();
     var confirmPassword = $('#strConfirmPassword').val().trim();
     var errorMsg = "";
-    
     if (fullName == "" || (role == "" || role == "select") || userName == "" || password == "") {
         errorMsg += "Please enter values in all fields!" + "<br>";
     } 
@@ -50,14 +49,12 @@ function validation() {
     if (!validatePasswordPolicy(password)) {
         errorMsg += "Password must contain at least 8 characters"+ "<br>" +"including digits and special characters.!" + "<br>";
     }
-
     if (errorMsg.length) {
         $("#signUpMsg").html(errorMsg).css('color','red');
         return false;
     }
     return true;
 }
-
 function doSave() {
     var fullName = $('#strFullname').val().trim();
     var role = $('#strRole').val().trim();
@@ -83,7 +80,6 @@ function doSave() {
         }
     });
 }
-
 function validatePasswordPolicy(password) {
     var passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}$/;
     return passwordRegex.test(password);
