@@ -1,7 +1,6 @@
 component{
     remote any function saveSignUp(strFullname,strUsername,strPassword,strConfirmPassword,strRole) returnFormat="JSON"{
         local.errorMsg = ''; 
-        var regexName = '^[a-zA-Z]+$';
         if(len(trim(strFullname)) EQ 0 OR len(trim(strUsername)) EQ 0 OR len(trim(strPassword)) EQ 0 OR len(trim(strConfirmPassword)) EQ 0 OR strRole eq "select"){
             local.errorMsg &= "Please enter values in all fields!<br>";
         }

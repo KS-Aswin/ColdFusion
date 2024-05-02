@@ -1,7 +1,12 @@
-<cfcomponent>
-    <cffunction name="printCount" access="public">
-        <cfargument name="file" type="any" required="true">
- 
+component{
+    remote any function uploadExcel(file){
+        cfspreadsheet( action="read", src=expandPath( '../ExcelFiles/' ), nameconflict="makeunique", query="foo", headerrow=1, excludeHeaderRow=true );
+        local.path=ExpandPath("./TextFiles/")>
+        
+
+    }
+}
+    
         <cffile action="upload" filefield="form.file" destination="#ExpandPath("./TextFiles/")#" nameconflict="makeunique">
         <cfset local.path=ExpandPath("./TextFiles/")>
         <cfset local.file=cffile.clientFile>
@@ -19,4 +24,3 @@
         
        
     </cffunction>
-</cfcomponent>
