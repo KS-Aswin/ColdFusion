@@ -110,3 +110,14 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+.table{
+    width:80% !important;
+    font-weight: bold;
+    height: 15px;
+    margin-bottom: 40px;
+}
+.errorMsg{
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}

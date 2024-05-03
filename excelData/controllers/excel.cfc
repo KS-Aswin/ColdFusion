@@ -1,26 +1,17 @@
-component{
-    remote any function uploadExcel(file){
-        cfspreadsheet( action="read", src=expandPath( '../ExcelFiles/' ), nameconflict="makeunique", query="foo", headerrow=1, excludeHeaderRow=true );
-        local.path=ExpandPath("./TextFiles/")>
-        
-
-    }
-}
-    
-        <cffile action="upload" filefield="form.file" destination="#ExpandPath("./TextFiles/")#" nameconflict="makeunique">
-        <cfset local.path=ExpandPath("./TextFiles/")>
-        <cfset local.file=cffile.clientFile>
-        <cfset allpath="#local.path#"&"#local.file#">
-        
-        
-        <cfif cffile.contentType EQ "text">
-            <cfset local.fileContent = fileRead(allpath)>
-            <cfset local.wordList = ListToArray(local.fileContent," ")>
-            <cfset local.words = ArrayLen(local.wordList)>
-            <cfreturn "The number of word in the Selected Text file is : "& local.words>
+<cfcomponent>
+    <cffunction name="uploadExcel" access="public" returnType="any">
+        <cfargument name="file" type="any" required="true">
+        <cffile action="upload" filefield="file" destination="#ExpandPath("./assets/excelFiles/")#" nameconflict="makeunique">
+        <cfset local.path=ExpandPath("./assets/excelFiles/")>
+        <cfset local.file=cffile.serverFile>
+        <cfset local.allpath="#local.path#"&"#local.file#">
+        <cffile action="read" file="#local.allpath#" variable="fileContent">
+        <cfspreadsheet action="read" src="#local.allpath#"  query="spreadSheet" headerrow="1"> 
+        <cfif structKeyExists(spreadSheet, "Name") and structKeyExists(spreadSheet, "Place") and structKeyExists(spreadSheet, "Age")>   
+            <cfdump  var="#spreadSheet#">
+            <cfreturn "The file contains all required columns">
         <cfelse>
-            <cfreturn "Upload a Text File">
+            <cfreturn "The file does not contain the required column!">
         </cfif>
-        
-       
     </cffunction>
+</cfcomponent>
